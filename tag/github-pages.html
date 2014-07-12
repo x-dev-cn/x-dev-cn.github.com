@@ -56,8 +56,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="/create-blog.html"><h1>Pelican 测试</h1></a>
-2014-07-11(星期五)
+            <a href="/pelican.html"><h1>Pelican和Github搭建免费个人博客</h1></a>
+2014-07-11 (星期五)
 
 by <a class="url fn" href="/author/felix.html">Felix</a>
  
@@ -66,8 +66,126 @@ by <a class="url fn" href="/author/felix.html">Felix</a>
  
         </div>
         
-        <div><h3>测试</h3>
-<p>测试Pelican Blog</p></div>
+        <div><h3>Pelican介绍</h3>
+<p>Pelican是一个用Python语言编写的静态网站生成器，支持使用restructuredText和Markdown写文章，配置灵活，扩展性强，有许多优秀的主题和插件可供使用。</p>
+<p>Pelican 的Github地址是：https://github.com/getpelican/pelican</p>
+<h3>安装Pelican</h3>
+<p>安装Pelican需要<em>python</em>环境，mac和linux一般都自带python，windows下需自行安装。为方便，再顺手装上<em>distribute</em>、<em>pip</em>、<em>virtualenv</em></p>
+<h6>安装 Pelican</h6>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
+</pre></div>
+
+
+<h6>安装Markdown</h6>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">Markdown</span>
+</pre></div>
+
+
+<blockquote>
+<h5>Markdown 免费编辑器</h5>
+<p>Windows 平台</p>
+<ul>
+<li><a href="http://markdownpad.com/">MarkdownPad</a></li>
+<li><a href="http://code52.org/DownmarkerWPF/">MarkPad</a></li>
+</ul>
+<p>Linux 平台</p>
+<ul>
+<li><a href="http://sourceforge.net/p/retext/home/ReText/">ReText</a></li>
+</ul>
+<p>Mac 平台</p>
+<ul>
+<li><a href="http://mouapp.com/">Mou</a></li>
+</ul>
+<p>在线编辑器</p>
+<ul>
+<li><a href="http://markable.in/">Markable.in</a></li>
+<li><a href="http://dillinger.io/">Dillinger.io</a></li>
+</ul>
+<p>浏览器插件</p>
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/oknndfeeopgpibecfjljjfanledpbkog">MaDe (Chrome)</a></li>
+</ul>
+</blockquote>
+<h3>创建 Blog</h3>
+<p>创建一个 Blog 目录</p>
+<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">myblog</span>
+<span class="n">cd</span> <span class="n">myblog</span>
+</pre></div>
+
+
+<p>快速创建 Blog</p>
+<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+
+
+<p>根据提示一步步输入相应的配置项，不知道如何设置的接受默认即可，后续可以通过编辑pelicanconf.py文件更改配置。</p>
+<p>以下是生成的目录结构：</p>
+<div class="highlight"><pre><span class="n">myblog</span><span class="o">/</span>
+<span class="err">├──</span> <span class="n">content</span>              <span class="err">#</span> <span class="err">存放输入的源文件</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="p">(</span><span class="n">pages</span><span class="p">)</span>          <span class="err">#</span> <span class="err">存放手工创建的静态页面</span>
+<span class="err">├──</span> <span class="n">output</span>               <span class="err">#</span> <span class="err">生成的输出文件</span>
+<span class="err">├──</span> <span class="n">develop_server</span><span class="p">.</span><span class="n">sh</span>    <span class="err">#</span> <span class="err">方便开启测试服务器</span>
+<span class="err">├──</span> <span class="n">Makefile</span>             <span class="err">#</span> <span class="err">方便管理博客的</span><span class="n">Makefile</span>
+<span class="err">├──</span> <span class="n">pelicanconf</span><span class="p">.</span><span class="n">py</span>       <span class="err">#</span> <span class="err">主配置文件</span>
+<span class="err">└──</span> <span class="n">publishconf</span><span class="p">.</span><span class="n">py</span>       <span class="err">#</span> <span class="err">发布时使用的配置文件</span>
+</pre></div>
+
+
+<h3>撰写文章</h3>
+<p>在 content 目录下用 Markdown 语法来写一篇文章</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">Python</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">publishing</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">my</span><span class="o">-</span><span class="kd">super</span><span class="o">-</span><span class="n">post</span>
+<span class="n">Author</span><span class="o">:</span> <span class="n">Alexis</span> <span class="n">Metaireau</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="n">Short</span> <span class="n">version</span> <span class="k">for</span> <span class="n">index</span> <span class="n">and</span> <span class="n">feeds</span>
+
+<span class="err">###</span><span class="k">this</span> <span class="k">is</span> <span class="n">title</span>
+<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">my</span> <span class="kd">super</span> <span class="n">blog</span> <span class="n">post</span><span class="o">.</span>
+</pre></div>
+
+
+<p>生成页面</p>
+<div class="highlight"><pre><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+
+
+<p>我比较喜欢下面的这个命令，它是实时生成你的站点，就是说你修改你的博客什么的它会实时的生成！很棒吧。</p>
+<div class="highlight"><pre><span class="n">make</span> <span class="n">regenerate</span>
+</pre></div>
+
+
+<p>现在就可以在output目录查看生成的html文件了。</p>
+<p>生成之后，我们要看下显示的效果，用下面的命令吧</p>
+<div class="highlight"><pre><span class="n">make</span> <span class="n">serve</span>
+</pre></div>
+
+
+<p>下面这个我比较喜欢，理由同上面的那个regerate，哈哈</p>
+<div class="highlight"><pre><span class="p">]</span><span class="n">make</span> <span class="n">devserver</span>
+</pre></div>
+
+
+<p>至此，我们可以在本地浏览刚才建好的博客了，地址就是<strong>http://localhost:8000</strong></p>
+<h3>在Github上显示自己的博客</h3>
+<p>接下来就是上传博客的时候了，我们要将生成的站点内容上传到刚才建好的example.github.com的工程master主干中，</p>
+<p>进入到output目录下，</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">init</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">origin</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/username/  username.github.com.git</span>
+</pre></div>
+
+
+<p>生成 .git的目录，此时我们上传到github上面，</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">pull</span>
+<span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;update&quot;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+
+
+<p>此时可能需要输入账户和密码，稍后说明如何不需要每次push都输入账户和密码。</p>
+<p>上传之后，我们打开github的这个项目，点击右侧的setting项，在下面可以看到github正在生成你的站点，稍等10多分钟，在浏览器中输入example.github.com，哈哈见证奇迹的时刻到了！</p></div>
         <hr />
     </div>
 		
@@ -106,7 +224,7 @@ by <a class="url fn" href="/author/felix.html">Felix</a>
                 Categories
                 </li>
                 
-                <li><a href="/category/technology.html">Technology</a></li>
+                <li><a href="/category/python.html">Python</a></li>
                    
             </ul>
             </div>

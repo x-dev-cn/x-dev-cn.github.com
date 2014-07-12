@@ -1,3 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Felix's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/felix.atom.xml" rel="self"></link><id>/</id><updated>2014-07-11T13:38:00+08:00</updated><entry><title>Pelican 测试</title><link href="/create-blog.html" rel="alternate"></link><updated>2014-07-11T13:38:00+08:00</updated><author><name>Felix</name></author><id>tag:,2014-07-11:create-blog.html</id><summary type="html">&lt;h3&gt;测试&lt;/h3&gt;
-&lt;p&gt;测试Pelican Blog&lt;/p&gt;</summary><category term="github pages"></category><category term="pelican"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Felix's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/felix.atom.xml" rel="self"></link><id>/</id><updated>2014-07-12T18:38:00+08:00</updated><entry><title>Pelican和Github搭建免费个人博客</title><link href="/pelican.html" rel="alternate"></link><updated>2014-07-12T18:38:00+08:00</updated><author><name>Felix</name></author><id>tag:,2014-07-11:pelican.html</id><summary type="html">&lt;h3&gt;Pelican介绍&lt;/h3&gt;
+&lt;p&gt;Pelican是一个用Python语言编写的静态网站生成器，支持使用restructuredText和Markdown写文章，配置灵活，扩展性强，有许多优秀的主题和插件可供使用。&lt;/p&gt;
+&lt;p&gt;Pelican 的Github地址是：https://github.com/getpelican/pelican&lt;/p&gt;
+&lt;h3&gt;安装Pelican&lt;/h3&gt;
+&lt;p&gt;安装Pelican需要&lt;em&gt;python&lt;/em&gt;环境，mac和linux一般都自带python，windows下需自行安装。为方便，再顺手装上&lt;em&gt;distribute&lt;/em&gt;、&lt;em&gt;pip&lt;/em&gt;、&lt;em&gt;virtualenv&lt;/em&gt;&lt;/p&gt;
+&lt;h6&gt;安装 Pelican&lt;/h6&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h6&gt;安装Markdown&lt;/h6&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;Markdown&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;h5&gt;Markdown 免费编辑器&lt;/h5&gt;
+&lt;p&gt;Windows 平台&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://markdownpad.com/"&gt;MarkdownPad&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://code52.org/DownmarkerWPF/"&gt;MarkPad&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Linux 平台&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://sourceforge.net/p/retext/home/ReText/"&gt;ReText&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mac 平台&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://mouapp.com/"&gt;Mou&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在线编辑器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://markable.in/"&gt;Markable.in&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dillinger.io/"&gt;Dillinger.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;浏览器插件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://chrome.google.com/webstore/detail/oknndfeeopgpibecfjljjfanledpbkog"&gt;MaDe (Chrome)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;创建 Blog&lt;/h3&gt;
+&lt;p&gt;创建一个 Blog 目录&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;快速创建 Blog&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;根据提示一步步输入相应的配置项，不知道如何设置的接受默认即可，后续可以通过编辑pelicanconf.py文件更改配置。&lt;/p&gt;
+&lt;p&gt;以下是生成的目录结构：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;myblog&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;              &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;存放输入的源文件&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;          &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;存放手工创建的静态页面&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;               &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;生成的输出文件&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;develop_server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;方便开启测试服务器&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;Makefile&lt;/span&gt;             &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;方便管理博客的&lt;/span&gt;&lt;span class="n"&gt;Makefile&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;pelicanconf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;       &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;主配置文件&lt;/span&gt;
+&lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;publishconf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;       &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;发布时使用的配置文件&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;撰写文章&lt;/h3&gt;
+&lt;p&gt;在 content 目录下用 Markdown 语法来写一篇文章&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;
+&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;
+&lt;span class="n"&gt;Tags&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;publishing&lt;/span&gt;
+&lt;span class="n"&gt;Slug&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;
+&lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Alexis&lt;/span&gt; &lt;span class="n"&gt;Metaireau&lt;/span&gt;
+&lt;span class="n"&gt;Summary&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;feeds&lt;/span&gt;
+
+&lt;span class="err"&gt;###&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;
+&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;生成页面&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;我比较喜欢下面的这个命令，它是实时生成你的站点，就是说你修改你的博客什么的它会实时的生成！很棒吧。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;regenerate&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;现在就可以在output目录查看生成的html文件了。&lt;/p&gt;
+&lt;p&gt;生成之后，我们要看下显示的效果，用下面的命令吧&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;serve&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;下面这个我比较喜欢，理由同上面的那个regerate，哈哈&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;devserver&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;至此，我们可以在本地浏览刚才建好的博客了，地址就是&lt;strong&gt;http://localhost:8000&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;在Github上显示自己的博客&lt;/h3&gt;
+&lt;p&gt;接下来就是上传博客的时候了，我们要将生成的站点内容上传到刚才建好的example.github.com的工程master主干中，&lt;/p&gt;
+&lt;p&gt;进入到output目录下，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/username/  username.github.com.git&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;生成 .git的目录，此时我们上传到github上面，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;pull&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;update&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;此时可能需要输入账户和密码，稍后说明如何不需要每次push都输入账户和密码。&lt;/p&gt;
+&lt;p&gt;上传之后，我们打开github的这个项目，点击右侧的setting项，在下面可以看到github正在生成你的站点，稍等10多分钟，在浏览器中输入example.github.com，哈哈见证奇迹的时刻到了！&lt;/p&gt;</summary><category term="github pages"></category><category term="pelican"></category><category term="python"></category></entry></feed>
