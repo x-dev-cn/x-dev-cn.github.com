@@ -1,21 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Felix's Blog</title><link>/</link><description></description><atom:link href="/feeds/felix.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 12 Jul 2014 18:38:00 +0800</lastBuildDate><item><title>Pelican和Github搭建免费个人博客</title><link>/pelican.html</link><description>&lt;h3&gt;Pelican介绍&lt;/h3&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Felix's Blog</title><link>/</link><description></description><atom:link href="/feeds/felix.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 12 Jul 2014 19:00:00 +0800</lastBuildDate><item><title>Markdown Demo</title><link>/markdown.html</link><description>&lt;h1&gt;This is an H1&lt;/h1&gt;
+&lt;h2&gt;this is an h2&lt;/h2&gt;
+&lt;h1&gt;This is an H1&lt;/h1&gt;
+&lt;h2&gt;This is an H2&lt;/h2&gt;
+&lt;h3&gt;This is an H3&lt;/h3&gt;
+&lt;h4&gt;This is an H4&lt;/h4&gt;
+&lt;h5&gt;This is an H5&lt;/h5&gt;
+&lt;h6&gt;This is an H6&lt;/h6&gt;
+&lt;h1&gt;This is an H1&lt;/h1&gt;
+&lt;h2&gt;This is an H2&lt;/h2&gt;
+&lt;h3&gt;This is an H3&lt;/h3&gt;
+&lt;h4&gt;This is an H4&lt;/h4&gt;
+&lt;h5&gt;This is an H5&lt;/h5&gt;
+&lt;h6&gt;This is an H6&lt;/h6&gt;
+&lt;h2&gt;HTML&lt;/h2&gt;
+&lt;p&gt;This is a regular paragraph.&lt;/p&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Foo&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This is another regular paragraph.&lt;/p&gt;
+&lt;h2&gt;BLOCK&lt;/h2&gt;
+&lt;h6&gt;block.eg1&lt;/h6&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is the first level of quoting.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is nested blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Back to the first level.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h6&gt;block.eg2&lt;/h6&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;This is a header.&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;This is the first list item.&lt;/li&gt;
+&lt;li&gt;This is the second list item.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here's some example code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nf"&gt;shell_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;echo $input | $markdown_script&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/blockquote&gt;
+&lt;h6&gt;block.code.eg1&lt;/h6&gt;
+&lt;p&gt;Here is an example of AppleScript:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;tell&lt;/span&gt; &lt;span class="n"&gt;application&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Foo&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;beep&lt;/span&gt;
+&lt;span class="n"&gt;end&lt;/span&gt; &lt;span class="n"&gt;tell&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h6&gt;block.code.eg2&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;There is a literal backtick (`) here.&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;LIST&lt;/h2&gt;
+&lt;h6&gt;list.eg1&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;red&lt;/li&gt;
+&lt;li&gt;green&lt;/li&gt;
+&lt;li&gt;blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6&gt;list.eg2&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;red&lt;/li&gt;
+&lt;li&gt;green&lt;/li&gt;
+&lt;li&gt;blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6&gt;list.eg3&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;red&lt;/li&gt;
+&lt;li&gt;green&lt;/li&gt;
+&lt;li&gt;blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6&gt;list.eg4&lt;/h6&gt;
+&lt;ol&gt;
+&lt;li&gt;red&lt;/li&gt;
+&lt;li&gt;green&lt;/li&gt;
+&lt;li&gt;blue&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;HORIZONTAL RULES&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;h2&gt;- - -&lt;/h2&gt;
+&lt;h2&gt;LINK&lt;/h2&gt;
+&lt;p&gt;This is &lt;a href="http://example.com/" title="Title"&gt;an example&lt;/a&gt; inline link.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://example.net/"&gt;This link&lt;/a&gt; has no title attribute.&lt;/p&gt;
+&lt;h2&gt;EMPHASIS&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;single asterisks&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;single underscores&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;double asterisks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;double underscores&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;IMAGE&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/path/to/img.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/path/to/img.jpg" title="Optional title" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="http://www.google.com.hk/images/srpr/logo3w.png" title="Optional title" /&gt;&lt;/p&gt;
+&lt;h2&gt;MISC&lt;/h2&gt;
+&lt;h6&gt;AUTOMATIC LINKS&lt;/h6&gt;
+&lt;p&gt;&lt;a href="http://www.163.com"&gt;http://www.163.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#97;&amp;#100;&amp;#100;&amp;#114;&amp;#101;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#109;"&gt;&amp;#97;&amp;#100;&amp;#100;&amp;#114;&amp;#101;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Sat, 12 Jul 2014 19:00:00 +0800</pubDate><guid>tag:,2014-07-12:markdown.html</guid><category>github pages</category><category>pelican</category><category>markdown</category></item><item><title>Pelican和Github搭建免费个人博客</title><link>/pelican.html</link><description>&lt;h3&gt;Pelican介绍&lt;/h3&gt;
 &lt;p&gt;Pelican是一个用Python语言编写的静态网站生成器，支持使用restructuredText和Markdown写文章，配置灵活，扩展性强，有许多优秀的主题和插件可供使用。&lt;/p&gt;
 &lt;p&gt;Pelican 的Github地址是：https://github.com/getpelican/pelican&lt;/p&gt;
 &lt;h3&gt;安装Pelican&lt;/h3&gt;
-&lt;p&gt;安装Pelican需要&lt;em&gt;python&lt;/em&gt;环境，mac和linux一般都自带python，windows下需自行安装。为方便，再顺手装上&lt;em&gt;distribute&lt;/em&gt;、&lt;em&gt;pip&lt;/em&gt;、&lt;em&gt;virtualenv&lt;/em&gt;&lt;/p&gt;
-&lt;h6&gt;安装 Pelican&lt;/h6&gt;
+&lt;p&gt;安装Pelican需要&lt;code&gt;python&lt;/code&gt;环境，mac和linux一般都自带python，windows下需自行安装。为方便，再顺手装上&lt;code&gt;distribute&lt;/code&gt;、&lt;code&gt;pip&lt;/code&gt;、&lt;code&gt;virtualenv&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;安装 Pelican&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h6&gt;安装Markdown&lt;/h6&gt;
+&lt;p&gt;安装Markdown&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;Markdown&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h3&gt;Markdown 免费编辑器&lt;/h3&gt;
 &lt;blockquote&gt;
-&lt;h5&gt;Markdown 免费编辑器&lt;/h5&gt;
 &lt;p&gt;Windows 平台&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://markdownpad.com/"&gt;MarkdownPad&lt;/a&gt;&lt;/li&gt;
@@ -54,15 +154,14 @@
 &lt;p&gt;根据提示一步步输入相应的配置项，不知道如何设置的接受默认即可，后续可以通过编辑pelicanconf.py文件更改配置。&lt;/p&gt;
 &lt;p&gt;以下是生成的目录结构：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;myblog&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;              &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;存放输入的源文件&lt;/span&gt;
-&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;          &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;存放手工创建的静态页面&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;               &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;生成的输出文件&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;develop_server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;方便开启测试服务器&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;Makefile&lt;/span&gt;             &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;方便管理博客的&lt;/span&gt;&lt;span class="n"&gt;Makefile&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;pelicanconf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;       &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;主配置文件&lt;/span&gt;
-&lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;publishconf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;       &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;发布时使用的配置文件&lt;/span&gt;
+&lt;span class="o"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;              &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;存放输入的源文件&lt;/span&gt;
+&lt;span class="o"&gt;│&lt;/span&gt;   &lt;span class="o"&gt;└──&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;          &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;存放手工创建的静态页面&lt;/span&gt;
+&lt;span class="o"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;               &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;生成的输出文件&lt;/span&gt;
+&lt;span class="o"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;develop_server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;方便开启测试服务器&lt;/span&gt;
+&lt;span class="o"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;Makefile&lt;/span&gt;             &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;方便管理博客的&lt;/span&gt;&lt;span class="o"&gt;Makefile&lt;/span&gt;
+&lt;span class="o"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;pelicanconf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;       &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;主配置文件&lt;/span&gt;
+&lt;span class="o"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;publishconf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;       &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;发布时使用的配置文件&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;h3&gt;撰写文章&lt;/h3&gt;
 &lt;p&gt;在 content 目录下用 Markdown 语法来写一篇文章&lt;/p&gt;
@@ -74,7 +173,6 @@
 &lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Alexis&lt;/span&gt; &lt;span class="n"&gt;Metaireau&lt;/span&gt;
 &lt;span class="n"&gt;Summary&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;feeds&lt;/span&gt;
 
-&lt;span class="err"&gt;###&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;
 &lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -96,13 +194,37 @@
 
 
 &lt;p&gt;下面这个我比较喜欢，理由同上面的那个regerate，哈哈&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;devserver&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;devserver&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;至此，我们可以在本地浏览刚才建好的博客了，地址就是&lt;strong&gt;http://localhost:8000&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;至此，我们可以在本地浏览刚才建好的博客了，地址就是&lt;code&gt;http://localhost:8000&lt;/code&gt;
+停止服务器则是下面的命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;develop_server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;stop&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h3&gt;在Github上显示自己的博客&lt;/h3&gt;
 &lt;p&gt;接下来就是上传博客的时候了，我们要将生成的站点内容上传到刚才建好的example.github.com的工程master主干中，&lt;/p&gt;
+&lt;p&gt;github官方说明&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Create a new repository on the command line&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="n"&gt;touch&lt;/span&gt; &lt;span class="n"&gt;README&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
+  &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt;
+  &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;README&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
+  &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;first commit&amp;quot;&lt;/span&gt;
+  &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/x-dev-cn/x-dev-&amp;gt;cn.github.com.git&lt;/span&gt;
+  &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Push an existing repository from the command line&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/x-dev-cn/x-dev-&amp;gt;cn.github.com.git&lt;/span&gt;
+  &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/blockquote&gt;
 &lt;p&gt;进入到output目录下，&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/username/  username.github.com.git&lt;/span&gt;
