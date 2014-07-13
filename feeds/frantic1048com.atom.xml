@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Felix's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/frantic1048com.atom.xml" rel="self"></link><id>/</id><updated>2014-07-13T17:15:00+08:00</updated><entry><title>如何为Pelican制作主题（转）</title><link href="/pelican-theme.html" rel="alternate"></link><updated>2014-07-13T17:15:00+08:00</updated><author><name>frantic1048.com</name></author><id>tag:,2014-07-13:pelican-theme.html</id><summary type="html">&lt;h3&gt;翻译：如何为pelican制作主题&lt;/h3&gt;
-&lt;p&gt;本文转自:&lt;a href="http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html"&gt;http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Felix's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/frantic1048com.atom.xml" rel="self"></link><id>/</id><updated>2014-07-13T17:15:00+08:00</updated><entry><title>如何为Pelican制作主题（转）</title><link href="/pelican-theme.html" rel="alternate"></link><updated>2014-07-13T17:15:00+08:00</updated><author><name>frantic1048.com</name></author><id>tag:,2014-07-13:pelican-theme.html</id><summary type="html">&lt;p&gt;本文转自:&lt;a href="http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html"&gt;http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;如何为Pelican制作主题&lt;/h2&gt;
 &lt;p&gt;Pelican使用著名的 Jinja2 模板引擎来生成它的HTML输出。Jinja2的语法非常简单。如果你想要制作你自己的主题，随意看看 “simple”主题 或许能给你一些灵感。&lt;/p&gt;
 &lt;h3&gt;主题的结构&lt;/h3&gt;
@@ -32,10 +31,10 @@
 &lt;p&gt;所有的模板都会接收到你在设置文件中定义的全部大写的变量。你可以直接访问这些变量。&lt;/p&gt;
 &lt;h4&gt;公共变量&lt;/h4&gt;
 &lt;p&gt;这些设置对所有模板都有效。&lt;/p&gt;
-&lt;table&gt;
+&lt;table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;"&gt;
     &lt;tr&gt;
-        &lt;td&gt;变量&lt;/td&gt;
-        &lt;td&gt;描述&lt;/td&gt;
+        &lt;td style="width:30%"&gt;变量&lt;/td&gt;
+        &lt;td style="width:70%"&gt;描述&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;output_file&lt;/td&gt;
@@ -79,10 +78,10 @@
 &lt;p&gt;index.html&lt;/p&gt;
 &lt;p&gt;这是博客的主页，生成到 output/index.html 。&lt;/p&gt;
 &lt;p&gt;如果启用了分页，后续的页面会被保存在 output/index&lt;code&gt;n&lt;/code&gt;.html 。&lt;/p&gt;
-&lt;table&gt;
+&lt;table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;"&gt;
     &lt;tr&gt;
-        &lt;td&gt;变量&lt;/td&gt;
-        &lt;td&gt;描述&lt;/td&gt;
+        &lt;td style="width:30%"&gt;变量&lt;/td&gt;
+        &lt;td style="width:70%"&gt;描述&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;articles_paginator&lt;/td&gt;
@@ -108,10 +107,10 @@
 
 &lt;p&gt;author.html&lt;/p&gt;
 &lt;p&gt;这个模板将用来处理每个作者的页面，输出为output/author/author_name.html。&lt;/p&gt;
-&lt;table&gt;
+&lt;table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;"&gt;
     &lt;tr&gt;
-        &lt;td&gt;变量&lt;/td&gt;
-        &lt;td&gt;描述&lt;/td&gt;
+        &lt;td style="width:30%"&gt;变量&lt;/td&gt;
+        &lt;td style="width:70%"&gt;描述&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;author&lt;/td&gt;
@@ -150,10 +149,10 @@
 &lt;p&gt;category.html&lt;/p&gt;
 &lt;p&gt;这个模板会用来处理每个分类，输出为output/category/category_name.html。&lt;/p&gt;
 &lt;p&gt;如果启用了分页，后续的页面将依照CATEGORY_SAVE_AS(默认值: output/category/category_name&lt;code&gt;n&lt;/code&gt;.html)输出。&lt;/p&gt;
-&lt;table&gt;
+&lt;table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;"&gt;
     &lt;tr&gt;
-        &lt;td&gt;变量&lt;/td&gt;
-        &lt;td&gt;描述&lt;/td&gt;
+        &lt;td style="width:30%"&gt;变量&lt;/td&gt;
+        &lt;td style="width:70%"&gt;描述&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;author&lt;/td&gt;
@@ -191,10 +190,10 @@
 
 &lt;p&gt;article.html&lt;/p&gt;
 &lt;p&gt;这个模板用来处理每篇文章，输出为output/article_name.html。这里是它特有的变量。&lt;/p&gt;
-&lt;table&gt;
+&lt;table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;"&gt;
     &lt;tr&gt;
-        &lt;td&gt;变量&lt;/td&gt;
-        &lt;td&gt;描述&lt;/td&gt;
+        &lt;td style="width:30%"&gt;变量&lt;/td&gt;
+        &lt;td style="width:70%"&gt;描述&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;article&lt;/td&gt;
@@ -208,10 +207,10 @@
 
 &lt;p&gt;page.html&lt;/p&gt;
 &lt;p&gt;这个模板用来处理每个page页面，相应输出为output/page_name.html。&lt;/p&gt;
-&lt;table&gt;
+&lt;table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;"&gt;
     &lt;tr&gt;
-        &lt;td&gt;变量&lt;/td&gt;
-        &lt;td&gt;描述&lt;/td&gt;
+        &lt;td style="width:30%"&gt;变量&lt;/td&gt;
+        &lt;td style="width:70%"&gt;描述&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;page&lt;/td&gt;
@@ -222,10 +221,10 @@
 &lt;p&gt;tag.html&lt;/p&gt;
 &lt;p&gt;这个模板用来处理各个标签，相应的输出为output/tag/tag_name.html。&lt;/p&gt;
 &lt;p&gt;如果启用了分页，后续的页面将依照TAG_SAVE_AS(默认值: output/tag/tag_name&lt;code&gt;n&lt;/code&gt;.html)输出。&lt;/p&gt;
-&lt;table&gt;
+&lt;table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;"&gt;
     &lt;tr&gt;
-        &lt;td&gt;变量&lt;/td&gt;
-        &lt;td&gt;描述&lt;/td&gt;
+        &lt;td style="width:30%"&gt;变量&lt;/td&gt;
+        &lt;td style="width:70%"&gt;描述&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;tag&lt;/td&gt;

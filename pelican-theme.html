@@ -60,8 +60,7 @@ by <a class="url fn" href="/author/frantic1048com.html">frantic1048.com</a>
 
         </div>
 	
-        <div><h3>翻译：如何为pelican制作主题</h3>
-<p>本文转自:<a href="http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html">http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html</a></p>
+        <div><p>本文转自:<a href="http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html">http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html</a></p>
 <h2>如何为Pelican制作主题</h2>
 <p>Pelican使用著名的 Jinja2 模板引擎来生成它的HTML输出。Jinja2的语法非常简单。如果你想要制作你自己的主题，随意看看 “simple”主题 或许能给你一些灵感。</p>
 <h3>主题的结构</h3>
@@ -93,10 +92,10 @@ by <a class="url fn" href="/author/frantic1048com.html">frantic1048.com</a>
 <p>所有的模板都会接收到你在设置文件中定义的全部大写的变量。你可以直接访问这些变量。</p>
 <h4>公共变量</h4>
 <p>这些设置对所有模板都有效。</p>
-<table>
+<table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;">
     <tr>
-        <td>变量</td>
-        <td>描述</td>
+        <td style="width:30%">变量</td>
+        <td style="width:70%">描述</td>
     </tr>
     <tr>
         <td>output_file</td>
@@ -140,10 +139,10 @@ by <a class="url fn" href="/author/frantic1048com.html">frantic1048.com</a>
 <p>index.html</p>
 <p>这是博客的主页，生成到 output/index.html 。</p>
 <p>如果启用了分页，后续的页面会被保存在 output/index<code>n</code>.html 。</p>
-<table>
+<table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;">
     <tr>
-        <td>变量</td>
-        <td>描述</td>
+        <td style="width:30%">变量</td>
+        <td style="width:70%">描述</td>
     </tr>
     <tr>
         <td>articles_paginator</td>
@@ -169,10 +168,10 @@ by <a class="url fn" href="/author/frantic1048com.html">frantic1048.com</a>
 
 <p>author.html</p>
 <p>这个模板将用来处理每个作者的页面，输出为output/author/author_name.html。</p>
-<table>
+<table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;">
     <tr>
-        <td>变量</td>
-        <td>描述</td>
+        <td style="width:30%">变量</td>
+        <td style="width:70%">描述</td>
     </tr>
     <tr>
         <td>author</td>
@@ -211,10 +210,10 @@ by <a class="url fn" href="/author/frantic1048com.html">frantic1048.com</a>
 <p>category.html</p>
 <p>这个模板会用来处理每个分类，输出为output/category/category_name.html。</p>
 <p>如果启用了分页，后续的页面将依照CATEGORY_SAVE_AS(默认值: output/category/category_name<code>n</code>.html)输出。</p>
-<table>
+<table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;">
     <tr>
-        <td>变量</td>
-        <td>描述</td>
+        <td style="width:30%">变量</td>
+        <td style="width:70%">描述</td>
     </tr>
     <tr>
         <td>author</td>
@@ -252,10 +251,10 @@ by <a class="url fn" href="/author/frantic1048com.html">frantic1048.com</a>
 
 <p>article.html</p>
 <p>这个模板用来处理每篇文章，输出为output/article_name.html。这里是它特有的变量。</p>
-<table>
+<table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;">
     <tr>
-        <td>变量</td>
-        <td>描述</td>
+        <td style="width:30%">变量</td>
+        <td style="width:70%">描述</td>
     </tr>
     <tr>
         <td>article</td>
@@ -269,10 +268,10 @@ by <a class="url fn" href="/author/frantic1048com.html">frantic1048.com</a>
 
 <p>page.html</p>
 <p>这个模板用来处理每个page页面，相应输出为output/page_name.html。</p>
-<table>
+<table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;">
     <tr>
-        <td>变量</td>
-        <td>描述</td>
+        <td style="width:30%">变量</td>
+        <td style="width:70%">描述</td>
     </tr>
     <tr>
         <td>page</td>
@@ -283,10 +282,10 @@ by <a class="url fn" href="/author/frantic1048com.html">frantic1048.com</a>
 <p>tag.html</p>
 <p>这个模板用来处理各个标签，相应的输出为output/tag/tag_name.html。</p>
 <p>如果启用了分页，后续的页面将依照TAG_SAVE_AS(默认值: output/tag/tag_name<code>n</code>.html)输出。</p>
-<table>
+<table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;width:90%;">
     <tr>
-        <td>变量</td>
-        <td>描述</td>
+        <td style="width:30%">变量</td>
+        <td style="width:70%">描述</td>
     </tr>
     <tr>
         <td>tag</td>

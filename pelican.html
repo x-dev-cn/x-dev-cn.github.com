@@ -51,7 +51,7 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>Pelican和Github搭建免费个人博客</h1>
+            <h1>用Pelican和Github搭建免费个人博客</h1>
 2014-07-12 (星期六)
 
 by <a class="url fn" href="/author/felix.html">Felix</a>
@@ -64,7 +64,7 @@ by <a class="url fn" href="/author/felix.html">Felix</a>
 <p>Pelican是一个用Python语言编写的静态网站生成器，支持使用restructuredText和Markdown写文章，配置灵活，扩展性强，有许多优秀的主题和插件可供使用。</p>
 <p>Pelican 的Github地址是：https://github.com/getpelican/pelican</p>
 <h3>安装Pelican</h3>
-<p>安装Pelican需要<code>python</code>环境，mac和linux一般都自带python，windows下需自行安装。为方便，再顺手装上<code>distribute</code>、<code>pip</code>、<code>virtualenv</code></p>
+<p>安装Pelican需要<code>python</code>环境和<code>git</code>，mac和linux一般都自带<code>python</code>，windows下需自行安装。为方便，再顺手装上<code>distribute</code>、<code>pip</code>、<code>virtualenv</code></p>
 <p>安装 Pelican</p>
 <div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
 </pre></div>
@@ -101,7 +101,7 @@ by <a class="url fn" href="/author/felix.html">Felix</a>
 </ul>
 </blockquote>
 <h3>创建 Blog</h3>
-<p>创建一个 Blog 目录</p>
+<p>创建一个 Blog 目录（注意文件夹名最好不为空，因为后续make html命令会出错）</p>
 <div class="highlight"><pre><span class="n">mkdir</span> <span class="n">myblog</span>
 <span class="n">cd</span> <span class="n">myblog</span>
 </pre></div>
@@ -112,17 +112,18 @@ by <a class="url fn" href="/author/felix.html">Felix</a>
 </pre></div>
 
 
-<p>根据提示一步步输入相应的配置项，不知道如何设置的接受默认即可，后续可以通过编辑pelicanconf.py文件更改配置。</p>
+<p>根据提示一步步输入相应的配置项，不知道如何设置的接受默认即可，后续可以通过编辑<code>pelicanconf.py</code>文件更改配置。</p>
 <p>以下是生成的目录结构：</p>
 <div class="highlight"><pre><span class="n">myblog</span><span class="o">/</span>
-<span class="o">├──</span> <span class="n">content</span>              <span class="o">#</span> <span class="o">存放输入的源文件</span>
-<span class="o">│</span>   <span class="o">└──</span> <span class="p">(</span><span class="n">pages</span><span class="p">)</span>          <span class="o">#</span> <span class="o">存放手工创建的静态页面</span>
-<span class="o">├──</span> <span class="n">output</span>               <span class="o">#</span> <span class="o">生成的输出文件</span>
-<span class="o">├──</span> <span class="n">develop_server</span><span class="p">.</span><span class="n">sh</span>    <span class="o">#</span> <span class="o">方便开启测试服务器</span>
-<span class="o">├──</span> <span class="n">Makefile</span>             <span class="o">#</span> <span class="o">方便管理博客的</span><span class="o">Makefile</span>
-<span class="o">├──</span> <span class="n">pelicanconf</span><span class="p">.</span><span class="n">py</span>       <span class="o">#</span> <span class="o">主配置文件</span>
-<span class="o">└──</span> <span class="n">publishconf</span><span class="p">.</span><span class="n">py</span>       <span class="o">#</span> <span class="o">发布时使用的配置文件</span>
+<span class="err">├──</span> <span class="n">content</span>              <span class="err">#</span> <span class="err">存放输入的源文件</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="p">(</span><span class="n">pages</span><span class="p">)</span>          <span class="err">#</span> <span class="err">存放手工创建的静态页面</span>
+<span class="err">├──</span> <span class="n">output</span>               <span class="err">#</span> <span class="err">生成的输出文件</span>
+<span class="err">├──</span> <span class="n">develop_server</span><span class="p">.</span><span class="n">sh</span>    <span class="err">#</span> <span class="err">方便开启测试服务器</span>
+<span class="err">├──</span> <span class="n">Makefile</span>             <span class="err">#</span> <span class="err">方便管理博客的</span><span class="n">Makefile</span>
+<span class="err">├──</span> <span class="n">pelicanconf</span><span class="p">.</span><span class="n">py</span>       <span class="err">#</span> <span class="err">主配置文件</span>
+<span class="err">└──</span> <span class="n">publishconf</span><span class="p">.</span><span class="n">py</span>       <span class="err">#</span> <span class="err">发布时使用的配置文件</span>
 </pre></div>
+
 
 <h3>撰写文章</h3>
 <p>在 content 目录下用 Markdown 语法来写一篇文章</p>
@@ -165,6 +166,61 @@ by <a class="url fn" href="/author/felix.html">Felix</a>
 </pre></div>
 
 
+<h3>主题选择</h3>
+<p>按如下步骤下载pelican官方主题，从里面挑选出自己喜欢的主题吧，大多数主题预览界面你可以打开这个<a href="http://pelicanthemes.com/">网页</a>进行查看。不过如今pelican又新出了很多主题，所以你需看看<a href="https://github.com/getpelican/pelican-themes">pelican主题开源库</a>。</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/getpelican/pelican-themes.git</span>
+</pre></div>
+
+
+<p>打开<code>pelicanconf.py</code>配置文件，更改或添加<code>THEME</code>为自己喜欢的主题，例如本博客所挑选的tuxlite_tbs，更多的配置含义请关注<a href="http://docs.getpelican.com/en/3.3.0/settings.html">官方文档</a>。</p>
+<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">pelican</span><span class="o">-</span><span class="n">themes</span><span class="o">/</span><span class="n">tuxlite_tbs</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<h3>添加评论系统</h3>
+<p>开启个人博客的原因在于分享知识，分享就需要交流，评论模块当然少不了。在<a href="https://disqus.com/">Disqus</a>上申请帐号，按照流程Disqus会分配给你站点的Shortname，记牢Shortname，如果忘了请进入admin/settings中查看。然后同理，在<code>pelicanconf.py</code>添加</p>
+<div class="highlight"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="n">Shortname</span>
+</pre></div>
+
+
+<p>此处配置的过程中，始终显示</p>
+<blockquote>
+<blockquote>
+<p>我们没有成功加载Disqus。如果您是管理员，请查看 故障排除指南.</p>
+</blockquote>
+</blockquote>
+<p>最后发现是受主题影响，一开始用的<code>pelican-bootstrap3</code>主题，后来改用目前使用的<code>tuxlite_tbs</code>主题后就一切正常了，问题在于<code>pelican-bootstrap3</code>主题中嵌入的Disqus的js代码有问题。</p>
+<h3>使用插件</h3>
+<p>Pelican 一开始是将插件内置的, 但是新版本 Pelican将插件隔离了出来, 所以我们要到github上 克隆一份新的插件, 在博客目录执行</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/getpelican/pelican-plugins.git</span>
+</pre></div>
+
+
+<p>现在我们博客目录就新添了一个 pelican-plugins目录, 我们以配置sitemap插件为例,sitemap插件可以生成 sitemap.xml 供搜索引擎使用</p>
+<p>在pelicanconf.py配置文件里加上如下项:</p>
+<div class="highlight"><pre><span class="n">PLUGIN_PATH</span> <span class="o">=</span> <span class="n">u</span><span class="s">&quot;pelican-plugins&quot;</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;sitemap&quot;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>配置sitemap 插件</p>
+<div class="highlight"><pre><span class="n">SITEMAP</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;format&quot;</span><span class="o">:</span> <span class="s">&quot;xml&quot;</span><span class="p">,</span> <span class="s">&quot;priorities&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s">&quot;articles&quot;</span><span class="o">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s">&quot;indexes&quot;</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s">&quot;pages&quot;</span><span class="o">:</span> <span class="mf">0.3</span><span class="p">,</span> <span class="p">},</span> <span class="s">&quot;changefreqs&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s">&quot;articles&quot;</span><span class="o">:</span> <span class="s">&quot;monthly&quot;</span><span class="p">,</span> <span class="s">&quot;indexes&quot;</span><span class="o">:</span> <span class="s">&quot;daily&quot;</span><span class="p">,</span> <span class="s">&quot;pages&quot;</span><span class="o">:</span> <span class="s">&quot;monthly&quot;</span><span class="p">,</span> <span class="p">}}</span>
+</pre></div>
+
+
+<h3>拷贝静态文件</h3>
+<p>如果我们定义静态的文件, 该如何将它在每次生成的时候拷贝到 <code>output</code> 目录呢, 我们以<code>robots.txt</code> 为例, 在我们的 <code>content/extra</code> 下面我们放了一个定义好的 <code>robots.txt</code>文件, 在<code>pelicanconf.py</code>更改或添加<code>FILES_TO_COPY</code>项:</p>
+<div class="highlight"><pre><span class="n">FILES_TO_COPY</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="s">&quot;extra/robots.txt&quot;</span><span class="p">,</span> <span class="s">&quot;robots.txt&quot;</span><span class="p">),)</span>
+</pre></div>
+
+
+<p>这样在每次生成<code>html</code>的时候都会把 <code>content/extra</code>下的 <code>robots.txt</code> 拷贝到 <code>output</code>目录下。</p>
+<h3>拷贝静态目录</h3>
+<p>如果是一个静态目录呢?比如有个名为<code>img</code>的目录用来放文章所使用的图片，我们可以在<code>pelicanconf.py</code>里添加或修改<code>STATIC_PATHS</code>项：</p>
+<div class="highlight"><pre><span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="s">&quot;img&quot;</span><span class="p">]</span>
+</pre></div>
+
+
 <h3>在Github上显示自己的博客</h3>
 <p>接下来就是上传博客的时候了，我们要将生成的站点内容上传到刚才建好的example.github.com的工程master主干中，</p>
 <p>github官方说明</p>
@@ -201,7 +257,14 @@ by <a class="url fn" href="/author/felix.html">Felix</a>
 
 
 <p>此时可能需要输入账户和密码，稍后说明如何不需要每次push都输入账户和密码。</p>
-<p>上传之后，我们打开github的这个项目，点击右侧的setting项，在下面可以看到github正在生成你的站点，稍等10多分钟，在浏览器中输入example.github.com，哈哈见证奇迹的时刻到了！</p></div>
+<p>上传之后，我们打开github的这个项目，点击右侧的setting项，在下面可以看到github正在生成你的站点，稍等10多分钟，在浏览器中输入example.github.com，哈哈见证奇迹的时刻到了！</p>
+<h3>域名绑定</h3>
+<p>在repo的根目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如顶级域名 example.com 或者二级域名 xxx.example.com。</p>
+<p>如果绑定的是顶级域名，则DNS要新建一条A记录，指向 204.232.175.78。</p>
+<p>如果绑定的是二级域名，则DNS要新建一条CNAME记录，指向 xxx.github.io 或者 xxx.github.com 。</p>
+<h3>参考资料</h3>
+<p>1 <a href="http://www.xycoding.com/articles/2013/11/21/blog-create/">Coding Our World：使用Pelican和GitHub Pages搭建个人博客 —— 基础篇</a></p>
+<p>2 <a href="http://frantic1048.com/bo-ke-dan-sheng-ji-ji-yu-githubpelicanchuang-jian-bo-ke-de-zheng-ge-guo-cheng.html">博客诞生记:基于GitHub+Pelican创建博客的整个过程</a></p></div>
 	
         <hr>
 
@@ -209,7 +272,7 @@ by <a class="url fn" href="/author/felix.html">Felix</a>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'xdevcn'; 
-    var disqus_title = 'Pelican和Github搭建免费个人博客';
+    var disqus_title = '用Pelican和Github搭建免费个人博客';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
