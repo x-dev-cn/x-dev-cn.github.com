@@ -14,7 +14,7 @@
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="linux修改SSH和FTP默认端口"/>
             <meta property="og:url" content="/centos_ssh_ftp_port.html"/>
-            <meta property="og:description" content="修改SSH端口 Linux的默认SSH端口是22 第一步： [root@okde.net ~]#vim /etc/ssh/sshd_config 找到#Port 22一段，这里是标识默认使用22端口，修改为如下： Port 22 Port 3456 注意：先不要删除Port 22，以免发生意外无法登录。 保存退出，然后执行 /etc/init.d/sshd restart（或/etc/init.d/ssh restart 或 service sshd restart） 重启SSH服务，这样SSH端口将同时工作与22和3456上。测试成功后再关闭22端口。 如果没有启用防火墙或者防火墙没有屏蔽端口，就可以直接测试新端口是否可用了。 修改vsftpd端口 修改(新增)FTP配置文件vsftpd.conf ..."/>
+            <meta property="og:description" content="修改SSH端口 Linux的默认SSH端口是22 第一步： vim /etc/ssh/sshd_config 找到#Port 22一段，这里是标识默认使用22端口，修改为如下： Port 22 Port 3456 注意：先不要删除Port 22，以免发生意外无法登录。 保存退出，然后执行 /etc/init.d/sshd restart 或 /etc/init.d/ssh restart 或 service sshd restart 重启SSH服务，这样SSH端口将同时工作与22和3456上。测试成功后再关闭22端口。 如果没有启用防火墙或者防火墙没有屏蔽端口，就可以直接测试新端口是否可用了。 修改vsftpd端口 修改(新增)FTP配置文件vsftpd.conf # vi /etc/vsftpd ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
@@ -94,7 +94,7 @@ Felix's Blog            </a>
                 <h3>修改SSH端口</h3>
 <p>Linux的默认SSH端口是22</p>
 <p>第一步：</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">okde</span><span class="p">.</span><span class="n">net</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
+<div class="highlight"><pre><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
 </pre></div>
 
 
@@ -103,12 +103,17 @@ Port 22
 Port 3456
 注意：先不要删除Port 22，以免发生意外无法登录。
 保存退出，然后执行</p>
-<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">sshd</span> <span class="n">restart</span><span class="err">（或</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
+<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">sshd</span> <span class="n">restart</span>
 </pre></div>
 
 
 <p>或</p>
-<div class="highlight"><pre><span class="n">service</span> <span class="n">sshd</span> <span class="n">restart</span><span class="err">）</span>
+<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>或</p>
+<div class="highlight"><pre><span class="n">service</span> <span class="n">sshd</span> <span class="n">restart</span>
 </pre></div>
 
 
@@ -203,11 +208,6 @@ Port 3456
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/pelican.html">
-                                pelican
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/github-pages.html">
                                 github pages
                             </a>
@@ -215,6 +215,11 @@ Port 3456
                         <li class="list-group-item tag-1">
                             <a href="/tag/python.html">
                                 python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/pelican.html">
+                                pelican
                             </a>
                         </li>
                         <li class="list-group-item tag-2">
@@ -228,11 +233,6 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
                             <a href="/tag/centos.html">
                                 centos
                             </a>
@@ -240,6 +240,11 @@ Port 3456
                         <li class="list-group-item tag-4">
                             <a href="/tag/ftp.html">
                                 ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
