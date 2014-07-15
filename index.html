@@ -61,6 +61,35 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="/centos_iptables.html">Centos配置iptables防火墙(转)</a></h2>
+                <div class="summary"><p>本文转自 <a href="http://www.woxplife.com/articles/404.html">http://www.woxplife.com/articles/404.html</a></p>
+<p>虽说阿里云推出了云盾服务，但是自己再加一层防火墙总归是更安全些，下面是我在阿里云vps上配置防火墙的过程，目前只配置INPUT。OUTPUT和FORWORD都是ACCEPT的规则</p>
+<h3>一、检查iptables服务状态</h3>
+<p>首先检查iptables服务的状态</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">status</span>
+<span class="nl">iptables:</span> <span class="n">Firewall</span> <span class="n">is</span> <span class="n">not</span> <span class="n">running</span><span class="p">.</span>
+</pre></div>
+
+
+<p>说明iptables服务是有安装的，但是没有启动服务。
+如果没有安装的话可以直接yum安装</p>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">iptables</span>
+</pre></div>
+
+
+<p>启动iptables</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">start</span>
+<span class="nl">iptables:</span> <span class="n">Applying</span> <span class="n">firewall</span> <span class="n">rules</span><span class="o">:</span>                         <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
+</pre></div>
+
+
+<p>看一下当前iptables的配置情况</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">iptables</span> <span class="o">-</span><span class="n">L</span> <span class="o">-</span><span class="n">n ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/centos_iptables.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/centos_mysql.html">CentOS安装mysql</a></h2>
                 <div class="summary"><h3>一、卸载自带mysql</h3>
 <p>因为mysql数据库在Linux上实在是太流行了，所以目前下载的主流Linux系统版本基本上都集成了mysql数据库在里面，我们可以通过如下命令来查看我们的操作系统上是否已经安装了mysql数据库</p>
@@ -264,18 +293,18 @@ Port 3456
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/linux.html">
-                                linux
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/github-pages.html">
                                 github pages
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
+                            <a href="/tag/linux.html">
+                                linux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/centos.html">
+                                CentOS
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -283,14 +312,29 @@ Port 3456
                                 pelican
                             </a>
                         </li>
-                        <li class="list-group-item tag-2">
-                            <a href="/tag/centos.html">
-                                CentOS
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/python.html">
+                                python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/markdown.html">
+                                markdown
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
                             <a href="/tag/ftp.html">
                                 ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/iptables.html">
+                                iptables
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -301,16 +345,6 @@ Port 3456
                         <li class="list-group-item tag-4">
                             <a href="/tag/svn.html">
                                 svn
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/markdown.html">
-                                markdown
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
                             </a>
                         </li>
                     </ul>
