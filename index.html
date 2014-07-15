@@ -42,6 +42,9 @@ Felix's Blog            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                         <li >
+                            <a href="/category/linux.html">Linux</a>
+                        </li>
+                        <li >
                             <a href="/category/pelican.html">Pelican</a>
                         </li>
             </ul>
@@ -57,6 +60,61 @@ Felix's Blog            </a>
     <div class="row">
         <div class="col-sm-9">
 
+            <article>
+                <h2><a href="/centos_ssh_ftp_port.html">linux修改SSH和FTP默认端口</a></h2>
+                <div class="summary"><h3>修改SSH端口</h3>
+<p>Linux的默认SSH端口是22</p>
+<p>第一步：</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">okde</span><span class="p">.</span><span class="n">net</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
+</pre></div>
+
+
+<p>找到#Port 22一段，这里是标识默认使用22端口，修改为如下：
+Port 22
+Port 3456
+注意：先不要删除Port 22，以免发生意外无法登录。
+保存退出，然后执行</p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">sshd</span> <span class="n">restart</span><span class="err">（或</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>或</p>
+<div class="highlight"><pre><span class="n">service</span> <span class="n">sshd</span> <span class="n">restart</span><span class="err">）</span>
+</pre></div>
+
+
+<p>重启SSH服务，这样SSH端口将同时工作与22和3456上。测试成功后再关闭22端口。
+如果没有启用防火墙或者防火墙没有屏蔽端口，就可以直接测试新端口是否可用了。</p>
+<h3>修改vsftpd端口</h3>
+<ol>
+<li>
+<p>修改(新增)FTP配置文件vsftpd.conf ...</p></li></ol>
+                    <a class="btn btn-default btn-xs" href="/centos_ssh_ftp_port.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/centos_svn_server.html">CentOS安装配置SVN服务器</a></h2>
+                <div class="summary"><h4>安装说明</h4>
+<p>系统环境: CentOS 6.5
+安装方式: yum</p>
+<h4>检查已安装版本</h4>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">qa</span> <span class="n">subversion</span> <span class="c1">//检查是否安装了低版本的SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">remove</span> <span class="n">subversion</span> <span class="c1">//卸载旧版本SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">httpd</span> <span class="n">httpd</span><span class="o">-</span><span class="n">devel</span> <span class="n">subversion</span> <span class="n">mod_dav_svn</span> <span class="n">mod_auth_mysql</span> <span class="c1">//安装SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">modules</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="n">modules</span><span class="p">]</span><span class="err">#</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">svn</span> <span class="c1">//确认已已安装了SVN模块</span>
+<span class="n">mod_authz_svn</span><span class="p">.</span><span class="n">so</span>
+<span class="n">mod_dav_svn</span><span class="p">.</span><span class="n">so</span>
+</pre></div>
+
+
+<h4>验证安装</h4>
+<p>检验已经安装的SVN版本信息 ...</p>
+                    <a class="btn btn-default btn-xs" href="/centos_svn_server.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="/pelican-theme.html">如何为Pelican制作主题（转）</a></h2>
                 <div class="summary"><p>本文转自:<a href="http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html">http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html</a></p>
@@ -174,13 +232,13 @@ Felix's Blog            </a>
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/github-pages.html">
-                                github pages
+                            <a href="/tag/pelican.html">
+                                pelican
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/pelican.html">
-                                pelican
+                            <a href="/tag/github-pages.html">
+                                github pages
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -188,9 +246,34 @@ Felix's Blog            </a>
                                 python
                             </a>
                         </li>
+                        <li class="list-group-item tag-2">
+                            <a href="/tag/linux.html">
+                                linux
+                            </a>
+                        </li>
                         <li class="list-group-item tag-4">
                             <a href="/tag/markdown.html">
                                 markdown
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/centos.html">
+                                centos
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
                             </a>
                         </li>
                     </ul>

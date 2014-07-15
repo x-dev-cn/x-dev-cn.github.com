@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Archives - Felix's Blog</title>
+    <title>svn - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -60,24 +60,29 @@ Felix's Blog            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <h1>Archives for Felix's Blog</h1>
+            <article>
+                <h2><a href="/centos_svn_server.html">CentOS安装配置SVN服务器</a></h2>
+                <div class="summary"><h4>安装说明</h4>
+<p>系统环境: CentOS 6.5
+安装方式: yum</p>
+<h4>检查已安装版本</h4>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">qa</span> <span class="n">subversion</span> <span class="c1">//检查是否安装了低版本的SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">remove</span> <span class="n">subversion</span> <span class="c1">//卸载旧版本SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">httpd</span> <span class="n">httpd</span><span class="o">-</span><span class="n">devel</span> <span class="n">subversion</span> <span class="n">mod_dav_svn</span> <span class="n">mod_auth_mysql</span> <span class="c1">//安装SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">modules</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="n">modules</span><span class="p">]</span><span class="err">#</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">svn</span> <span class="c1">//确认已已安装了SVN模块</span>
+<span class="n">mod_authz_svn</span><span class="p">.</span><span class="n">so</span>
+<span class="n">mod_dav_svn</span><span class="p">.</span><span class="n">so</span>
+</pre></div>
 
-        <dl>
-                <dt>2014-07-15 (星期二)</dt>
-                <dd><a href='/centos_ssh_ftp_port.html'>linux修改SSH和FTP默认端口</a></dd>
-                <dt>2014-07-14 (星期一)</dt>
-                <dd><a href='/centos_svn_server.html'>CentOS安装配置SVN服务器</a></dd>
-                <dt>2014-07-13 (星期日)</dt>
-                <dd><a href='/pelican-theme.html'>如何为Pelican制作主题（转）</a></dd>
-                <dt>2014-07-12 (星期六)</dt>
-                <dd><a href='/pelican-solid-red.html'>去除Pelican代码块中的<span class="err"></a></dd>
-                <dt>2014-07-12 (星期六)</dt>
-                <dd><a href='/pelican.html'>用Pelican和Github搭建免费个人博客</a></dd>
-                <dt>2014-07-12 (星期六)</dt>
-                <dd><a href='/markdown.html'>Markdown Demo</a></dd>
-        </dl>
-    </section>
+
+<h4>验证安装</h4>
+<p>检验已经安装的SVN版本信息 ...</p>
+                    <a class="btn btn-default btn-xs" href="/centos_svn_server.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar">
 
