@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Felix's Blog</title><link>/</link><description></description><atom:link href="/feeds/felix.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 15 Jul 2014 20:10:00 +0800</lastBuildDate><item><title>linux修改SSH和FTP默认端口</title><link>/centos_ssh_ftp_port.html</link><description>&lt;h3&gt;修改SSH端口&lt;/h3&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Felix's Blog</title><link>/</link><description></description><atom:link href="/feeds/felix.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 15 Jul 2014 21:40:00 +0800</lastBuildDate><item><title>CentOS安装mysql</title><link>/centos_mysql.html</link><description>&lt;h3&gt;一、卸载自带mysql&lt;/h3&gt;
+&lt;p&gt;因为mysql数据库在Linux上实在是太流行了，所以目前下载的主流Linux系统版本基本上都集成了mysql数据库在里面，我们可以通过如下命令来查看我们的操作系统上是否已经安装了mysql数据库&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# rpm -qa | grep mysql　　// 这个命令就会查看该操作系统上是否已经安装了mysql数据库&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;有的话，我们就通过 rpm -e 命令 或者 rpm -e --nodeps 命令来卸载掉&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# rpm -e mysql　　// 普通删除模式&lt;/span&gt;
+&lt;span class="c"&gt;# rpm -e --nodeps mysql　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在删除完以后我们可以通过 &lt;code&gt;rpm -qa | grep mysql&lt;/code&gt; 命令来查看mysql是否已经卸载成功！！&lt;/p&gt;
+&lt;h3&gt;二、通过yum来进行mysql的安装&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# yum install -y mysql-server mysql mysql-deve&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装完成后可以通过如下命令，查看刚安装好的mysql-server的版本&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# rpm -qi mysql-server&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;三、mysql数据库的初始化及相关配置&lt;/h3&gt;
+&lt;p&gt;启动mysql&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# service mysqld start&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;注意：如果我们是第一次启动mysql服务，mysql服务器首先会进行初始化的配置。&lt;/p&gt;
+&lt;p&gt;重启mysql&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# service mysqld restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;查看mysql服务是不是开机自动启动&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# chkconfig --list | grep mysqld&lt;/span&gt;
+&lt;span class="n"&gt;mysqld&lt;/span&gt;             &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;    &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;    &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;    &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;    &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;    &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;    &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;设置开机自启动&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# chkconfig mysqld on&lt;/span&gt;
+&lt;span class="cp"&gt;# chkconfig --list | grep mysql&lt;/span&gt;
+&lt;span class="n"&gt;mysqld&lt;/span&gt;             &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;    &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;    &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;启用&lt;/span&gt;    &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;启用&lt;/span&gt;    &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;启用&lt;/span&gt;    &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;启用&lt;/span&gt;    &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;关闭&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;mysql数据库安装完以后只会有一个root管理员账号，但是此时的root账号还并没有为其设置密码&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# mysqladmin -u root password &amp;#39;new-password&amp;#39;　　// 为root账号设置密码&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;此时我们就可以通过 &lt;code&gt;mysql -u root -p&lt;/code&gt; 命令来登录我们的mysql数据库了&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Tue, 15 Jul 2014 21:40:00 +0800</pubDate><guid>tag:,2014-07-15:centos_mysql.html</guid><category>linux</category><category>CentOS</category><category>mysql</category></item><item><title>linux修改SSH和FTP默认端口</title><link>/centos_ssh_ftp_port.html</link><description>&lt;h3&gt;修改SSH端口&lt;/h3&gt;
 &lt;p&gt;Linux的默认SSH端口是22&lt;/p&gt;
 &lt;p&gt;第一步：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sshd_config&lt;/span&gt;
