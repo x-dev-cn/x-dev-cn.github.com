@@ -77,7 +77,7 @@ Felix's Blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-07-15T21:40:00"> 2014-07-15 (星期二)</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-07-15T22:40:00"> 2014-07-15 (星期二)</time>
     </span>
 
 
@@ -145,6 +145,55 @@ Felix's Blog            </a>
 
 
 <p>此时我们就可以通过 <code>mysql -u root -p</code> 命令来登录我们的mysql数据库了</p>
+<h3>四、开启远程链接</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span> <span class="n">mysql</span> <span class="err">#</span> <span class="err">第</span><span class="mi">1</span><span class="err">个</span><span class="n">mysql</span><span class="err">是执行命令，第</span><span class="mi">2</span><span class="err">个</span><span class="n">mysql</span><span class="err">是系统数据名称</span>
+</pre></div>
+
+
+<p>在mysql控制台执行:</p>
+<div class="highlight"><pre><span class="n">grant</span> <span class="n">all</span> <span class="n">privileges</span> <span class="n">on</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="n">to</span> <span class="err">&#39;</span><span class="n">root</span><span class="sc">&#39;@&#39;</span><span class="o">%</span><span class="err">&#39;</span> <span class="n">identified</span> <span class="n">by</span> <span class="err">&#39;</span><span class="mi">123456</span><span class="err">&#39;</span> <span class="n">with</span> <span class="n">grant</span> <span class="n">option</span><span class="p">;</span>
+</pre></div>
+
+
+<p>root是用户名，%代表任意主机，'123456'指定的登录密码（这个和本地的root密码可以设置不同的，互不影响）</p>
+<div class="highlight"><pre><span class="n">flush</span> <span class="n">privileges</span><span class="p">;</span> <span class="err">#</span> <span class="err">重载系统权限</span>
+<span class="n">exit</span><span class="p">;</span>
+</pre></div>
+
+
+<p>允许3306端口</p>
+<div class="highlight"><pre><span class="n">iptables</span> <span class="o">-</span><span class="n">I</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">m</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">3306</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+</pre></div>
+
+
+<p>查看规则是否生效</p>
+<div class="highlight"><pre><span class="n">iptables</span> <span class="o">-</span><span class="n">L</span> <span class="o">-</span><span class="n">n</span> <span class="err">#</span> <span class="err">或者</span><span class="o">:</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">status</span>
+</pre></div>
+
+
+<p>此时生产环境是不安全的，远程管理之后应该关闭端口，删除之前添加的规则</p>
+<div class="highlight"><pre><span class="n">iptables</span> <span class="o">-</span><span class="n">D</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">m</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">3306</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+</pre></div>
+
+
+<p>上面iptables添加/删除规则都是临时的，如果需要重启后也生效，需要保存修改:</p>
+<div class="highlight"><pre><span class="n">service</span> <span class="n">iptables</span> <span class="n">save</span>
+</pre></div>
+
+
+<p>或者: </p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">iptables</span> <span class="n">save</span>
+</pre></div>
+
+
+<p>另外，</p>
+<div class="highlight"><pre><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysconfig</span><span class="o">/</span><span class="n">iptables</span>
+</pre></div>
+
+
+<p>加上下面这行规则也是可以的</p>
+<div class="highlight"><pre><span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">m</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">3306</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+</pre></div>
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -202,8 +251,8 @@ Felix's Blog            </a>
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/github-pages.html">
-                                github pages
+                            <a href="/tag/python.html">
+                                python
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -212,28 +261,18 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/centos.html">
-                                CentOS
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/pelican.html">
                                 pelican
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
+                            <a href="/tag/centos.html">
+                                CentOS
                             </a>
                         </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/markdown.html">
-                                markdown
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/github-pages.html">
+                                github pages
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -242,13 +281,23 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
+                            <a href="/tag/ssh.html">
+                                ssh
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/ssh.html">
-                                ssh
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/markdown.html">
+                                markdown
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
