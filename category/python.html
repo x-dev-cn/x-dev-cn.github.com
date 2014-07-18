@@ -1,324 +1,278 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
+    <title>Python - Felix's Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>Felix's Blog</title>
-    <meta name="description" content="">
-    <meta name="author" content="Felix">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="/theme/html5.js"></script>
-    <![endif]-->
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content="Felix's Blog"/>
+            <meta property="og:url" content=""/>
+            <meta property="og:description" content="Felix's Blog"/>
 
-    <!-- Le styles -->
-    <link href="/theme/bootstrap.min.css" rel="stylesheet">
-    <link href="/theme/bootstrap.min.responsive.css" rel="stylesheet">
-    <link href="/theme/local.css" rel="stylesheet">
-    <link href="/theme/pygments.css" rel="stylesheet">
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
 
 </head>
-
 <body>
 
-<div class="navbar">
-    <div class="navbar-inner">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-
-         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-         </a>
-
-        <a class="brand" href="">Felix's Blog</a>
-
-        <div class="nav-collapse">
-        <ul class="nav">
-            
-        </ul>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Felix's Blog            </a>
         </div>
-        
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="/category/linux.html">Linux</a>
+                        </li>
+                        <li >
+                            <a href="/category/pelican.html">Pelican</a>
+                        </li>
+                        <li class="active">
+                            <a href="/category/python.html">Python</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    </div>
-</div>
+</div> <!-- /.navbar -->
 
 <div class="container">
-    <div class="content">
     <div class="row">
+        <div class="col-sm-9">
 
-        <div class="span9">
-        
+            <article>
+                <h2><a href="/python_virtualenv.html">Python 虚拟环境：Virtualenv</a></h2>
+                <div class="summary"><h3>virtualenv</h3>
+<p>virtualenv用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：</p>
+<ol>
+<li>在没有权限的情况下安装新套件</li>
+<li>不同应用可以使用不同的套件版本</li>
+<li>套件升级不影响其他应用</li>
+</ol>
+<h4>一、安装</h4>
+<p>安装easy_install</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
+</pre></div>
 
-        
+
+<p>安装pip   </p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">pip</span>
+</pre></div>
 
 
-    <div class='article'>
-        <div class="content-title">
-            <a href="/pelican.html"><h1>Pelican和Github搭建免费个人博客</h1></a>
-2014-07-12 (星期六)
-
-by <a class="url fn" href="/author/felix.html">Felix</a>
- 
+<p>安装virtualenv</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
+</pre></div>
 
 
- 
+<h4>二、使用</h4>
+<ol>
+<li>
+<p>建立虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="p">[</span><span class="err">指定虛擬環境的名稱</span><span class="p">]</span>
+</pre></div>
+
+
+<p>例如下列指令会建立名称为“ENV”的虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="n">ENV</span>
+</pre></div>
+
+
+<p>默认情况下，虚拟环境会依赖系统环境中的site packages，就是说系统中已经安装好的第三方package也会安装在虚拟环境中，如果不想依赖这些package，那么可以加上参数 --no-site-packages建立虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">[</span><span class="err">虚拟环境名称</span><span class="p">]</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>启动虚拟环境</p>
+<div class="highlight"><pre><span class="n">cd ...</span></pre></div></li></ol>
+                    <a class="btn btn-default btn-xs" href="/python_virtualenv.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
         </div>
-        
-        <div><h3>Pelican介绍</h3>
-<p>Pelican是一个用Python语言编写的静态网站生成器，支持使用restructuredText和Markdown写文章，配置灵活，扩展性强，有许多优秀的主题和插件可供使用。</p>
-<p>Pelican 的Github地址是：https://github.com/getpelican/pelican</p>
-<h3>安装Pelican</h3>
-<p>安装Pelican需要<code>python</code>环境，mac和linux一般都自带python，windows下需自行安装。为方便，再顺手装上<code>distribute</code>、<code>pip</code>、<code>virtualenv</code></p>
-<p>安装 Pelican</p>
-<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
-</pre></div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://twitter.com/xdevcn"><i
+                            class="fa fa-twitter-square fa-lg"></i> twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://www.facebook.com/felix.hsu.cn"><i
+                            class="fa fa-facebook-square fa-lg"></i> facebook
+                    </a></li>
+                    <li class="list-group-item"><a href="http://github.com/x-dev-cn"><i
+                            class="fa fa-github-square fa-lg"></i> github
+                    </a></li>
+                  </ul>
+                </li>
 
 
-<p>安装Markdown</p>
-<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">Markdown</span>
-</pre></div>
 
+                <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                    <ul class="list-group" id="tags">
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/github-pages.html">
+                                github pages
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/python.html">
+                                python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/centos.html">
+                                CentOS
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/linux.html">
+                                linux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/pelican.html">
+                                pelican
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/iptables.html">
+                                iptables
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/markdown.html">
+                                markdown
+                            </a>
+                        </li>
+                    </ul>
+                </li>    
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://x-dev.cn/" target="_blank">
+                x-dev
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://www.3000net.cn/" target="_blank">
+                三千网络
+            </a>
+        </li>
+      </ul>
+    </li>
 
-<h3>Markdown 免费编辑器</h3>
-<blockquote>
-<p>Windows 平台</p>
-<ul>
-<li><a href="http://markdownpad.com/">MarkdownPad</a></li>
-<li><a href="http://code52.org/DownmarkerWPF/">MarkPad</a></li>
-</ul>
-<p>Linux 平台</p>
-<ul>
-<li><a href="http://sourceforge.net/p/retext/home/ReText/">ReText</a></li>
-</ul>
-<p>Mac 平台</p>
-<ul>
-<li><a href="http://mouapp.com/">Mou</a></li>
-</ul>
-<p>在线编辑器</p>
-<ul>
-<li><a href="http://markable.in/">Markable.in</a></li>
-<li><a href="http://dillinger.io/">Dillinger.io</a></li>
-</ul>
-<p>浏览器插件</p>
-<ul>
-<li><a href="https://chrome.google.com/webstore/detail/oknndfeeopgpibecfjljjfanledpbkog">MaDe (Chrome)</a></li>
-</ul>
-</blockquote>
-<h3>创建 Blog</h3>
-<p>创建一个 Blog 目录</p>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">myblog</span>
-<span class="n">cd</span> <span class="n">myblog</span>
-</pre></div>
+        </ul>
+    </section>
 
-
-<p>快速创建 Blog</p>
-<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
-</pre></div>
-
-
-<p>根据提示一步步输入相应的配置项，不知道如何设置的接受默认即可，后续可以通过编辑pelicanconf.py文件更改配置。</p>
-<p>以下是生成的目录结构：</p>
-<div class="highlight"><pre><span class="n">myblog</span><span class="o">/</span>
-<span class="o">├──</span> <span class="n">content</span>              <span class="o">#</span> <span class="o">存放输入的源文件</span>
-<span class="o">│</span>   <span class="o">└──</span> <span class="p">(</span><span class="n">pages</span><span class="p">)</span>          <span class="o">#</span> <span class="o">存放手工创建的静态页面</span>
-<span class="o">├──</span> <span class="n">output</span>               <span class="o">#</span> <span class="o">生成的输出文件</span>
-<span class="o">├──</span> <span class="n">develop_server</span><span class="p">.</span><span class="n">sh</span>    <span class="o">#</span> <span class="o">方便开启测试服务器</span>
-<span class="o">├──</span> <span class="n">Makefile</span>             <span class="o">#</span> <span class="o">方便管理博客的</span><span class="o">Makefile</span>
-<span class="o">├──</span> <span class="n">pelicanconf</span><span class="p">.</span><span class="n">py</span>       <span class="o">#</span> <span class="o">主配置文件</span>
-<span class="o">└──</span> <span class="n">publishconf</span><span class="p">.</span><span class="n">py</span>       <span class="o">#</span> <span class="o">发布时使用的配置文件</span>
-</pre></div>
-
-<h3>撰写文章</h3>
-<p>在 content 目录下用 Markdown 语法来写一篇文章</p>
-<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
-<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
-<span class="n">Category</span><span class="o">:</span> <span class="n">Python</span>
-<span class="n">Tags</span><span class="o">:</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">publishing</span>
-<span class="n">Slug</span><span class="o">:</span> <span class="n">my</span><span class="o">-</span><span class="kd">super</span><span class="o">-</span><span class="n">post</span>
-<span class="n">Author</span><span class="o">:</span> <span class="n">Alexis</span> <span class="n">Metaireau</span>
-<span class="n">Summary</span><span class="o">:</span> <span class="n">Short</span> <span class="n">version</span> <span class="k">for</span> <span class="n">index</span> <span class="n">and</span> <span class="n">feeds</span>
-
-<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">my</span> <span class="kd">super</span> <span class="n">blog</span> <span class="n">post</span><span class="o">.</span>
-</pre></div>
-
-
-<p>生成页面</p>
-<div class="highlight"><pre><span class="n">make</span> <span class="n">html</span>
-</pre></div>
-
-
-<p>我比较喜欢下面的这个命令，它是实时生成你的站点，就是说你修改你的博客什么的它会实时的生成！很棒吧。</p>
-<div class="highlight"><pre><span class="n">make</span> <span class="n">regenerate</span>
-</pre></div>
-
-
-<p>现在就可以在output目录查看生成的html文件了。</p>
-<p>生成之后，我们要看下显示的效果，用下面的命令吧</p>
-<div class="highlight"><pre><span class="n">make</span> <span class="n">serve</span>
-</pre></div>
-
-
-<p>下面这个我比较喜欢，理由同上面的那个regerate，哈哈</p>
-<div class="highlight"><pre><span class="n">make</span> <span class="n">devserver</span>
-</pre></div>
-
-
-<p>至此，我们可以在本地浏览刚才建好的博客了，地址就是<code>http://localhost:8000</code>
-停止服务器则是下面的命令：</p>
-<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">develop_server</span><span class="p">.</span><span class="n">sh</span> <span class="n">stop</span>
-</pre></div>
-
-
-<h3>在Github上显示自己的博客</h3>
-<p>接下来就是上传博客的时候了，我们要将生成的站点内容上传到刚才建好的example.github.com的工程master主干中，</p>
-<p>github官方说明</p>
-<blockquote>
-<p>Create a new repository on the command line</p>
-<div class="highlight"><pre>  <span class="n">touch</span> <span class="n">README</span><span class="p">.</span><span class="n">md</span>
-  <span class="n">git</span> <span class="n">init</span>
-  <span class="n">git</span> <span class="n">add</span> <span class="n">README</span><span class="p">.</span><span class="n">md</span>
-  <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;first commit&quot;</span>
-  <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/x-dev-cn/x-dev-&gt;cn.github.com.git</span>
-  <span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
-</pre></div>
-
-
-<p>Push an existing repository from the command line</p>
-<div class="highlight"><pre>  <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/x-dev-cn/x-dev-&gt;cn.github.com.git</span>
-  <span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
-</pre></div>
-
-
-</blockquote>
-<p>进入到output目录下，</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">init</span>
-<span class="n">git</span> <span class="n">remote</span> <span class="n">origin</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/username/  username.github.com.git</span>
-</pre></div>
-
-
-<p>生成 .git的目录，此时我们上传到github上面，</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">pull</span>
-<span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;update&quot;</span>
-<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
-</pre></div>
-
-
-<p>此时可能需要输入账户和密码，稍后说明如何不需要每次push都输入账户和密码。</p>
-<p>上传之后，我们打开github的这个项目，点击右侧的setting项，在下面可以看到github正在生成你的站点，稍等10多分钟，在浏览器中输入example.github.com，哈哈见证奇迹的时刻到了！</p></div>
-        <hr />
+</aside>        </div>
     </div>
-		
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="/markdown.html"><h2>Markdown Demo</h2></a>
-        <div class= "well small"> 2014-07-12 (星期六)
-
-by <a class="url fn" href="/author/felix.html">Felix</a>
- 
-
-
- </div>
-        <div class="summary"><h1>This is an H1</h1>
-<h2>this is an h2</h2>
-<h1>This is an H1</h1>
-<h2>This is an H2</h2>
-<h3>This is an H3</h3>
-<h4>This is an H4</h4>
-<h5>This is an H5</h5>
-<h6>This is an H6</h6>
-<h1>This is an H1</h1>
-<h2>This is an H2</h2>
-<h3>This is an H3</h3>
-<h4>This is an H4</h4>
-<h5>This is ...</h5> <a class="btn btn-info xsmall" href="/markdown.html">read more</a></div>
-    </div>	
-				
-<div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="/category/python.html">1</a></li>
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-</ul>
 </div>
- 
-  
-        </div>
-        
-        <div class="span3">
-
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header"> 
-                Site
-                </li>
-            
-                <li><a href="/">Archives</a>
-                <li><a href="/tags.html">Tags</a>
-                <li><a href="/" rel="alternate">Atom feed</a></li>
-            </ul>
-            </div>
-
-
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header"> 
-                Categories
-                </li>
-                
-                <li><a href="/category/python.html">Python</a></li>
-                   
-            </ul>
-            </div>
-
-
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header"> 
-                Links
-                </li>
-            
-                <li><a href="http://x-dev.cn/">x-dev</a></li>
-                <li><a href="http://www.3000net.cn/">三千网络</a></li>
-            </ul>
-            </div>
-
-
-            <div class="social">
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header"> 
-                Social
-                </li>
-           
-                <li><a href="javascrip:;">twitter</a></li>
-                <li><a href="javascrip:;">facebook</a></li>
-                <li><a href="http://github.com/x-dev-cn">github</a></li>
-            </ul>
-            </div>
-            </div>
-
-        </div>  
-    </div>     </div> 
 <footer>
-<br />
-<p><a href="">Felix's Blog</a> &copy; Felix 2012</p>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Felix
+            &middot;         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
 </footer>
+<script src="//code.jquery.com/jquery.js"></script>
 
-</div> <!-- /container -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
-<script>var _gaq=[['_setAccount','UA-52760298-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
- 
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'xdevcn'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-52760298-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
 </body>
 </html>

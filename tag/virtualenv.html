@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Linux - Felix's Blog</title>
+    <title>virtualenv - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -41,7 +41,7 @@ Felix's Blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li >
                             <a href="/category/linux.html">Linux</a>
                         </li>
                         <li >
@@ -64,118 +64,53 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="/centos_mysql.html">CentOS安装配置mysql</a></h2>
-                <div class="summary"><h3>一、卸载自带mysql</h3>
-<p>因为mysql数据库在Linux上实在是太流行了，所以目前下载的主流Linux系统版本基本上都集成了mysql数据库在里面，我们可以通过如下命令来查看我们的操作系统上是否已经安装了mysql数据库</p>
-<div class="highlight"><pre><span class="c"># rpm -qa | grep mysql　　// 这个命令就会查看该操作系统上是否已经安装了mysql数据库</span>
+                <h2><a href="/python_virtualenv.html">Python 虚拟环境：Virtualenv</a></h2>
+                <div class="summary"><h3>virtualenv</h3>
+<p>virtualenv用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：</p>
+<ol>
+<li>在没有权限的情况下安装新套件</li>
+<li>不同应用可以使用不同的套件版本</li>
+<li>套件升级不影响其他应用</li>
+</ol>
+<h4>一、安装</h4>
+<p>安装easy_install</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
 </pre></div>
 
 
-<p>有的话，我们就通过 rpm -e 命令 或者 rpm -e --nodeps 命令来卸载掉</p>
-<div class="highlight"><pre><span class="c"># rpm -e mysql　　// 普通删除模式</span>
-<span class="c"># rpm -e --nodeps mysql　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除</span>
+<p>安装pip   </p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">pip</span>
 </pre></div>
 
 
-<p>在删除完以后我们可以通过 <code>rpm -qa | grep mysql</code> 命令来查看mysql是否已经卸载成功！！</p>
-<h3>二、通过yum来进行mysql的安装</h3>
-<div class="highlight"><pre><span class="c"># yum install -y mysql-server mysql mysql-deve</span>
+<p>安装virtualenv</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
 </pre></div>
 
 
-<p>安装完成后可以通过如下命令，查看刚安装好的mysql-server的版本</p>
-<div class="highlight"><pre><span class="c"># rpm -qi ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/centos_mysql.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/centos_iptables.html">Centos配置iptables防火墙(转)</a></h2>
-                <div class="summary"><p>本文转自 <a href="http://www.woxplife.com/articles/404.html">http://www.woxplife.com/articles/404.html</a></p>
-<p>虽说阿里云推出了云盾服务，但是自己再加一层防火墙总归是更安全些，下面是我在阿里云vps上配置防火墙的过程，目前只配置INPUT。OUTPUT和FORWORD都是ACCEPT的规则</p>
-<h3>一、检查iptables服务状态</h3>
-<p>首先检查iptables服务的状态</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">status</span>
-<span class="nl">iptables:</span> <span class="n">Firewall</span> <span class="n">is</span> <span class="n">not</span> <span class="n">running</span><span class="p">.</span>
-</pre></div>
-
-
-<p>说明iptables服务是有安装的，但是没有启动服务。
-如果没有安装的话可以直接yum安装</p>
-<div class="highlight"><pre><span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">iptables</span>
-</pre></div>
-
-
-<p>启动iptables</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">start</span>
-<span class="nl">iptables:</span> <span class="n">Applying</span> <span class="n">firewall</span> <span class="n">rules</span><span class="o">:</span>                         <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
-</pre></div>
-
-
-<p>看一下当前iptables的配置情况</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">iptables</span> <span class="o">-</span><span class="n">L</span> <span class="o">-</span><span class="n">n ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/centos_iptables.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/centos_ssh_ftp_port.html">linux修改SSH和FTP默认端口</a></h2>
-                <div class="summary"><h3>修改SSH端口</h3>
-<p>Linux的默认SSH端口是22</p>
-<p>第一步：</p>
-<div class="highlight"><pre><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
-</pre></div>
-
-
-<p>找到#Port 22一段，这里是标识默认使用22端口，修改为如下：
-Port 22
-Port 3456
-注意：先不要删除Port 22，以免发生意外无法登录。
-保存退出，然后执行</p>
-<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">sshd</span> <span class="n">restart</span>
-</pre></div>
-
-
-<p>或</p>
-<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
-</pre></div>
-
-
-<p>或</p>
-<div class="highlight"><pre><span class="n">service</span> <span class="n">sshd</span> <span class="n">restart</span>
-</pre></div>
-
-
-<p>重启SSH服务，这样SSH端口将同时工作与22和3456上。测试成功后再关闭22端口。
-如果没有启用防火墙或者防火墙没有屏蔽端口，就可以直接测试新端口是否可用了。</p>
-<h3>修改vsftpd端口</h3>
+<h4>二、使用</h4>
 <ol>
 <li>
-<p>修改(新增)FTP配置文件vsftpd.conf</p>
-<div class="highlight"><pre><span class="c"># vi /etc/vsftpd ...</span></pre></div></li></ol>
-                    <a class="btn btn-default btn-xs" href="/centos_ssh_ftp_port.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/centos_svn_server.html">CentOS安装配置SVN服务器</a></h2>
-                <div class="summary"><h4>安装说明</h4>
-<p>系统环境: CentOS 6.5
-安装方式: yum</p>
-<h4>检查已安装版本</h4>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">qa</span> <span class="n">subversion</span> <span class="c1">//检查是否安装了低版本的SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">remove</span> <span class="n">subversion</span> <span class="c1">//卸载旧版本SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">httpd</span> <span class="n">httpd</span><span class="o">-</span><span class="n">devel</span> <span class="n">subversion</span> <span class="n">mod_dav_svn</span> <span class="n">mod_auth_mysql</span> <span class="c1">//安装SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">modules</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="n">modules</span><span class="p">]</span><span class="err">#</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">svn</span> <span class="c1">//确认已已安装了SVN模块</span>
-<span class="n">mod_authz_svn</span><span class="p">.</span><span class="n">so</span>
-<span class="n">mod_dav_svn</span><span class="p">.</span><span class="n">so</span>
+<p>建立虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="p">[</span><span class="err">指定虛擬環境的名稱</span><span class="p">]</span>
 </pre></div>
 
 
-<h4>验证安装</h4>
-<p>检验已经安装的SVN版本信息 ...</p>
-                    <a class="btn btn-default btn-xs" href="/centos_svn_server.html">more ...</a>
+<p>例如下列指令会建立名称为“ENV”的虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="n">ENV</span>
+</pre></div>
+
+
+<p>默认情况下，虚拟环境会依赖系统环境中的site packages，就是说系统中已经安装好的第三方package也会安装在虚拟环境中，如果不想依赖这些package，那么可以加上参数 --no-site-packages建立虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">[</span><span class="err">虚拟环境名称</span><span class="p">]</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>启动虚拟环境</p>
+<div class="highlight"><pre><span class="n">cd ...</span></pre></div></li></ol>
+                    <a class="btn btn-default btn-xs" href="/python_virtualenv.html">more ...</a>
                 </div>
             </article>
             <hr/>
