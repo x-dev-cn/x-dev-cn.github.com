@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Felix's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/felix.atom.xml" rel="self"></link><id>/</id><updated>2014-07-18T12:40:00+08:00</updated><entry><title>Python 虚拟环境：Virtualenv</title><link href="/python_virtualenv.html" rel="alternate"></link><updated>2014-07-18T12:40:00+08:00</updated><author><name>Felix</name></author><id>tag:,2014-07-18:python_virtualenv.html</id><summary type="html">&lt;h3&gt;virtualenv&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Felix's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/felix.atom.xml" rel="self"></link><id>/</id><updated>2014-07-18T12:40:00+08:00</updated><entry><title>Python 版本管理：pyenv</title><link href="/python_pyenv.html" rel="alternate"></link><updated>2014-07-18T12:40:00+08:00</updated><author><name>Felix</name></author><id>tag:,2014-07-18:python_pyenv.html</id><summary type="html">&lt;p&gt;需要使用新版本Python的相关功能，但是又不想要影响到系统自带的Python，这个时候就需要实现Python的多版本共存。&lt;/p&gt;
+&lt;p&gt;pyenv可以很好的实现Python的多版本共存。&lt;/p&gt;
+&lt;h4&gt;安装pyenv&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/yyuu/pyenv.git ~/.pyenv&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PYENV_ROOT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$HOME/.pyenv&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bashrc&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$PYENV_ROOT/bin:$PATH&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bashrc&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$(pyenv init -)&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bashrc&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;exec&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;SHELL&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;安装Python&lt;/h4&gt;
+&lt;p&gt;查看可安装的版本&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装指定版本&lt;/p&gt;
+&lt;p&gt;使用如下命令即可安装python 3.3.2.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="mf"&gt;3.3.2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;该命令会从github上下载python的源代码，并解压到/tmp目录下，然后在/tmp中执行编译工作。编译过程依赖一些其他的库文件，若库文件不能满足，则编译错误，需要重新下载、编译。。。(为什么每次都要重新下呢？)&lt;/p&gt;
+&lt;p&gt;已知的一些需要预先安装的库包括：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;readline readline-devel readline-static
+openssl openssl-devel openssl-static
+sqlite-devel
+bzip2-devel bzip2-libs&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在所有python依赖库都安装好的情况下，python的安装很顺利。&lt;/p&gt;
+&lt;h4&gt;更新数据库&lt;/h4&gt;
+&lt;p&gt;安装完成之后需要对数据库进行更新：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;rehash&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;查看当前已安装的python版本&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;versions&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;export&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;seisman&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mf"&gt;3.3.2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中的星号表示使用的是系统自带的python。&lt;/p&gt;
+&lt;h4&gt;设置全局的python版本&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;global&lt;/span&gt; &lt;span class="mf"&gt;3.3.2&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;versions&lt;/span&gt;
+&lt;span class="n"&gt;system&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mf"&gt;3.3.2&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;export&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;seisman&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;当前全局的python版本已经变成了3.3.2。也可以使用pyenv local或pyenv shell临时改变python版本。&lt;/p&gt;
+&lt;h4&gt;确认python版本&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;
+&lt;span class="n"&gt;Python&lt;/span&gt; &lt;span class="mf"&gt;3.3.2&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Sep&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;44&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;GCC&lt;/span&gt; &lt;span class="mf"&gt;4.4.7&lt;/span&gt; &lt;span class="mi"&gt;20120313&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Red&lt;/span&gt; &lt;span class="n"&gt;Hat&lt;/span&gt; &lt;span class="mf"&gt;4.4.7&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;linux&lt;/span&gt;
+&lt;span class="n"&gt;Type&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;help&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;copyright&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;credits&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;license&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;more&lt;/span&gt; &lt;span class="n"&gt;information&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;使用python&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;输入python即可使用新版本的python；&lt;/li&gt;
+&lt;li&gt;系统命令会以/usr/bin/python的方式直接调用老版本的python；&lt;/li&gt;
+&lt;li&gt;使用pip安装第三方模块时会安装到~/.pyenv/versions/3.3.2下，不会和系统模块发生冲突。&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="virtualenv"></category><category term="Virtualenvwrapper"></category></entry><entry><title>Python 虚拟环境：Virtualenv</title><link href="/python_virtualenv.html" rel="alternate"></link><updated>2014-07-18T12:40:00+08:00</updated><author><name>Felix</name></author><id>tag:,2014-07-18:python_virtualenv.html</id><summary type="html">&lt;h3&gt;virtualenv&lt;/h3&gt;
 &lt;p&gt;virtualenv用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在没有权限的情况下安装新套件&lt;/li&gt;
