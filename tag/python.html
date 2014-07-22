@@ -67,24 +67,17 @@ Felix's Blog            </a>
                 <h2><a href="/python_pyenv.html">Python 版本管理：pyenv</a></h2>
                 <div class="summary"><p>需要使用新版本Python的相关功能，但是又不想要影响到系统自带的Python，这个时候就需要实现Python的多版本共存。</p>
 <p>pyenv可以很好的实现Python的多版本共存。</p>
+<h4>安装工具包</h4>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">groupinstall</span> <span class="s">&quot;Development tools&quot;</span>
+
+<span class="n">yum</span> <span class="n">install</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">bzip2</span><span class="o">-</span><span class="n">devel</span> <span class="n">openssl</span><span class="o">-</span><span class="n">devel</span> <span class="n">ncurses</span><span class="o">-</span><span class="n">devel</span> <span class="n">sqlite</span><span class="o">-</span><span class="n">devel</span> <span class="n">readline</span><span class="o">-</span><span class="n">devel</span> <span class="n">tk</span><span class="o">-</span><span class="n">devel</span> <span class="n">gdbm</span><span class="o">-</span><span class="n">devel</span> <span class="n">db4</span><span class="o">-</span><span class="n">devel</span> <span class="n">libpcap</span><span class="o">-</span><span class="n">devel</span> <span class="n">xz</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+
+
 <h4>安装pyenv</h4>
 <div class="highlight"><pre><span class="err">$</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/yyuu/pyenv.git ~/.pyenv</span>
 <span class="err">$</span> <span class="n">echo</span> <span class="err">&#39;</span><span class="n">export</span> <span class="n">PYENV_ROOT</span><span class="o">=</span><span class="s">&quot;$HOME/.pyenv&quot;</span><span class="err">&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span>
-<span class="err">$</span> <span class="n">echo</span> <span class="err">&#39;</span><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s">&quot;$PYENV_ROOT/bin:$PATH&quot;</span><span class="err">&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span>
-<span class="err">$</span> <span class="n">echo</span> <span class="err">&#39;</span><span class="n">eval</span> <span class="s">&quot;$(pyenv init -)&quot;</span><span class="err">&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span>
-<span class="err">$</span> <span class="n">exec</span> <span class="err">$</span><span class="n">SHELL</span> <span class="o">-</span><span class="n">l</span>
-</pre></div>
-
-
-<h4>安装Python</h4>
-<p>查看可安装的版本</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">pyenv</span> <span class="n">install</span> <span class="o">--</span><span class="n">list</span>
-</pre></div>
-
-
-<p>安装指定版本</p>
-<p>使用如下命令即可安装python 3.3.2.</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">pyenv</span> <span class="n">install</span> <span class="mf">3.3.2 ...</span></pre></div>
+<span class="err">$</span> <span class="n">echo ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="/python_pyenv.html">more ...</a>
                 </div>
             </article>
@@ -238,8 +231,8 @@ Felix's Blog            </a>
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/github-pages.html">
-                                github pages
+                            <a href="/tag/pelican.html">
+                                pelican
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -253,23 +246,28 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
+                            <a href="/tag/github-pages.html">
+                                github pages
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
                             <a href="/tag/centos.html">
                                 CentOS
                             </a>
                         </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/pelican.html">
-                                pelican
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/markdown.html">
+                                markdown
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
+                            <a href="/tag/ftp.html">
+                                ftp
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -278,8 +276,28 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/markdown.html">
-                                markdown
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ubuntu.html">
+                                ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/tty.html">
+                                tty
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -290,21 +308,6 @@ Felix's Blog            </a>
                         <li class="list-group-item tag-4">
                             <a href="/tag/pyenv.html">
                                 pyenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenvwrapper.html">
-                                Virtualenvwrapper
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenv.html">
-                                virtualenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
                             </a>
                         </li>
                     </ul>
