@@ -64,6 +64,69 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="/PostgreSQL_settings.html">PostgreSQL 配置</a></h2>
+                <div class="summary"><h4>修改PostgreSQL数据库的默认用户postgres的密码(注意不是linux系统帐号)</h4>
+<ol>
+<li>
+<p>PostgreSQL登录(使用psql客户端登录)</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span>
+</pre></div>
+
+
+<blockquote>
+<p>psql (9.3.5)  </p>
+<p>Type "help" for help.</p>
+<p>postgres=#</p>
+</blockquote>
+</li>
+<li>
+<p>修改PostgreSQL登录密码：</p>
+<div class="highlight"><pre> <span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">ALTER</span> <span class="n">USER</span> <span class="n">postgres</span> <span class="n">WITH</span> <span class="n">PASSWORD</span> <span class="err">&#39;</span><span class="n">postgres</span><span class="err">&#39;</span><span class="p">;</span>
+ <span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">select</span> <span class="o">*</span> <span class="n">from</span> <span class="n">pg_shadow</span> <span class="p">;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>退出PostgreSQL psql客户端</p>
+<div class="highlight"><pre><span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="err">\</span><span class="n">q</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h4>修改linux系统的postgres用户的密码（密码与数据库用户postgres的密码相同）</h4>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">passwd</span> <span class="n">postgres</span>
+</pre></div>
+
+
+<h4>修改PostgresSQL数据库配置实现远程访问</h4>
+<div class="highlight"><pre><span class="n">vim</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span><span class="mf">9.3</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">postgresql</span><span class="p">.</span><span class="n">conf</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p>监听任何地址访问，修改连接权限 ...</p></li></ol>
+                    <a class="btn btn-default btn-xs" href="/PostgreSQL_settings.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/PostgreSQL_YUM_Installation.html">PostgreSQL YUM Installation</a></h2>
+                <div class="summary"><h3>Instructions</h3>
+<hr />
+<h4>Configure your YUM repository</h4>
+<p>Locate and edit your distributions .repo file, located:</p>
+<ul>
+<li>On Fedora: /etc/yum.repos.d/fedora.repo and /etc/yum.repos.d/fedora-updates.repo, [fedora] sections</li>
+<li>On CentOS: /etc/yum.repos.d/CentOS-Base.repo, [base] and [updates] sections</li>
+<li>On Red Hat: /etc/yum/pluginconf.d/rhnplugin ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="/PostgreSQL_YUM_Installation.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/ubuntu_pip_mysql-python.html">pip install mysql-python fails with EnvironmentError: mysql_config not found</a></h2>
                 <div class="summary"><p>ubuntu: </p>
 <div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
@@ -269,52 +332,6 @@ Port 3456
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/centos_svn_server.html">CentOS安装配置SVN服务器</a></h2>
-                <div class="summary"><h4>安装说明</h4>
-<p>系统环境: CentOS 6.5
-安装方式: yum</p>
-<h4>检查已安装版本</h4>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">qa</span> <span class="n">subversion</span> <span class="c1">//检查是否安装了低版本的SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">remove</span> <span class="n">subversion</span> <span class="c1">//卸载旧版本SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">httpd</span> <span class="n">httpd</span><span class="o">-</span><span class="n">devel</span> <span class="n">subversion</span> <span class="n">mod_dav_svn</span> <span class="n">mod_auth_mysql</span> <span class="c1">//安装SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">modules</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="n">modules</span><span class="p">]</span><span class="err">#</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">svn</span> <span class="c1">//确认已已安装了SVN模块</span>
-<span class="n">mod_authz_svn</span><span class="p">.</span><span class="n">so</span>
-<span class="n">mod_dav_svn</span><span class="p">.</span><span class="n">so</span>
-</pre></div>
-
-
-<h4>验证安装</h4>
-<p>检验已经安装的SVN版本信息 ...</p>
-                    <a class="btn btn-default btn-xs" href="/centos_svn_server.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/pelican-theme.html">如何为Pelican制作主题（转）</a></h2>
-                <div class="summary"><p>本文转自:<a href="http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html">http://frantic1048.com/fan-yi-ru-he-wei-pelicanzhi-zuo-zhu-ti-wu-xian-xiu-ding-zhong.html</a></p>
-<h2>如何为Pelican制作主题</h2>
-<p>Pelican使用著名的 Jinja2 模板引擎来生成它的HTML输出。Jinja2的语法非常简单。如果你想要制作你自己的主题，随意看看 “simple”主题 或许能给你一些灵感。</p>
-<h3>主题的结构</h3>
-<p>制作主题时，你必须遵守下列结构</p>
-<div class="highlight"><pre><span class="err">├────</span> <span class="k">static</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">css</span>
-<span class="err">│</span>   <span class="err">└──</span> <span class="n">images</span>
-<span class="err">└────</span> <span class="n">templates</span>
-    <span class="err">├──</span> <span class="n">archives</span><span class="p">.</span><span class="n">html</span> <span class="c1">// 用来显示文章存档</span>
-    <span class="err">├──</span> <span class="n">period_archives</span><span class="p">.</span><span class="n">html</span>  <span class="c1">//用来显示根据时间段划分的文章存档</span>
-    <span class="err">├──</span> <span class="n">article</span><span class="p">.</span><span class="n">html</span>  <span class="c1">// 用来处理每篇文章的页面</span>
-    <span class="err">├──</span> <span class="n">author</span><span class="p">.</span><span class="n">html</span>   <span class="c1">// 用来处理各个作者的页面</span>
-    <span class="err">├──</span> <span class="n">authors</span><span class="p">.</span><span class="n">html</span>  <span class="c1">// 必须列出所有作者</span>
-    <span class="err">├──</span> <span class="n">categories</span><span class="p">.</span><span class="n">html</span>   <span class="c1">// 必须列出所有目录</span>
-    <span class="err">├──</span> <span class="n">category</span><span class="p">.</span><span class="n">html</span> <span class="c1">// 用来处理各个目录</span>
-    <span class="err">├──</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span><span class="c1">// Index页面，列出所有文章</span>
-    <span class="err">├──</span> <span class="n">page</span><span class="p">.</span><span class="n">html ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/pelican-theme.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
     <ul class="pagination">
             <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -350,6 +367,16 @@ Port 3456
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
+                            <a href="/tag/centos.html">
+                                CentOS
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/python.html">
+                                python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
                             <a href="/tag/github-pages.html">
                                 github pages
                             </a>
@@ -360,78 +387,13 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/pelican.html">
                                 pelican
                             </a>
                         </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/centos.html">
-                                CentOS
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/iptables.html">
-                                iptables
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenv.html">
-                                virtualenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenvwrapper.html">
-                                Virtualenvwrapper
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql-python.html">
-                                mysql-python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/jetbrains.html">
-                                jetbrains
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/tty.html">
-                                tty
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pyenv.html">
-                                pyenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ssh.html">
-                                ssh
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pip.html">
-                                pip
+                        <li class="list-group-item tag-2">
+                            <a href="/tag/postgresql.html">
+                                PostgreSQL
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -440,8 +402,73 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
+                            <a href="/tag/yum.html">
+                                YUM
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/iptables.html">
+                                iptables
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/tty.html">
+                                tty
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql-python.html">
+                                mysql-python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/jetbrains.html">
+                                jetbrains
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
                             <a href="/tag/pychram.html">
                                 pychram
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pip.html">
+                                pip
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pyenv.html">
+                                pyenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
                             </a>
                         </li>
                         <li class="list-group-item tag-4">

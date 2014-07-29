@@ -64,6 +64,69 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="/PostgreSQL_settings.html">PostgreSQL 配置</a></h2>
+                <div class="summary"><h4>修改PostgreSQL数据库的默认用户postgres的密码(注意不是linux系统帐号)</h4>
+<ol>
+<li>
+<p>PostgreSQL登录(使用psql客户端登录)</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span>
+</pre></div>
+
+
+<blockquote>
+<p>psql (9.3.5)  </p>
+<p>Type "help" for help.</p>
+<p>postgres=#</p>
+</blockquote>
+</li>
+<li>
+<p>修改PostgreSQL登录密码：</p>
+<div class="highlight"><pre> <span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">ALTER</span> <span class="n">USER</span> <span class="n">postgres</span> <span class="n">WITH</span> <span class="n">PASSWORD</span> <span class="err">&#39;</span><span class="n">postgres</span><span class="err">&#39;</span><span class="p">;</span>
+ <span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">select</span> <span class="o">*</span> <span class="n">from</span> <span class="n">pg_shadow</span> <span class="p">;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>退出PostgreSQL psql客户端</p>
+<div class="highlight"><pre><span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="err">\</span><span class="n">q</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h4>修改linux系统的postgres用户的密码（密码与数据库用户postgres的密码相同）</h4>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">passwd</span> <span class="n">postgres</span>
+</pre></div>
+
+
+<h4>修改PostgresSQL数据库配置实现远程访问</h4>
+<div class="highlight"><pre><span class="n">vim</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span><span class="mf">9.3</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">postgresql</span><span class="p">.</span><span class="n">conf</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p>监听任何地址访问，修改连接权限 ...</p></li></ol>
+                    <a class="btn btn-default btn-xs" href="/PostgreSQL_settings.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/PostgreSQL_YUM_Installation.html">PostgreSQL YUM Installation</a></h2>
+                <div class="summary"><h3>Instructions</h3>
+<hr />
+<h4>Configure your YUM repository</h4>
+<p>Locate and edit your distributions .repo file, located:</p>
+<ul>
+<li>On Fedora: /etc/yum.repos.d/fedora.repo and /etc/yum.repos.d/fedora-updates.repo, [fedora] sections</li>
+<li>On CentOS: /etc/yum.repos.d/CentOS-Base.repo, [base] and [updates] sections</li>
+<li>On Red Hat: /etc/yum/pluginconf.d/rhnplugin ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="/PostgreSQL_YUM_Installation.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/ubuntu_pip_mysql-python.html">pip install mysql-python fails with EnvironmentError: mysql_config not found</a></h2>
                 <div class="summary"><p>ubuntu: </p>
 <div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
@@ -247,6 +310,16 @@ Port 3456
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
+                            <a href="/tag/centos.html">
+                                CentOS
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/python.html">
+                                python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
                             <a href="/tag/github-pages.html">
                                 github pages
                             </a>
@@ -257,78 +330,13 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/pelican.html">
                                 pelican
                             </a>
                         </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/centos.html">
-                                CentOS
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/iptables.html">
-                                iptables
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenv.html">
-                                virtualenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenvwrapper.html">
-                                Virtualenvwrapper
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql-python.html">
-                                mysql-python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/jetbrains.html">
-                                jetbrains
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/tty.html">
-                                tty
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pyenv.html">
-                                pyenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ssh.html">
-                                ssh
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pip.html">
-                                pip
+                        <li class="list-group-item tag-2">
+                            <a href="/tag/postgresql.html">
+                                PostgreSQL
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -337,8 +345,73 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
+                            <a href="/tag/yum.html">
+                                YUM
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/iptables.html">
+                                iptables
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/tty.html">
+                                tty
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql-python.html">
+                                mysql-python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/jetbrains.html">
+                                jetbrains
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
                             <a href="/tag/pychram.html">
                                 pychram
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pip.html">
+                                pip
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pyenv.html">
+                                pyenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
                             </a>
                         </li>
                         <li class="list-group-item tag-4">

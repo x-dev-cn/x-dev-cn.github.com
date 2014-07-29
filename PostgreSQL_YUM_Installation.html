@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>virtualenv - Felix's Blog</title>
+    <title>PostgreSQL YUM Installation - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,10 +11,10 @@
     
 
     <!-- Open Graph tags -->
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="Felix's Blog"/>
-            <meta property="og:url" content=""/>
-            <meta property="og:description" content="Felix's Blog"/>
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="PostgreSQL YUM Installation"/>
+            <meta property="og:url" content="/PostgreSQL_YUM_Installation.html"/>
+            <meta property="og:description" content="Instructions Configure your YUM repository Locate and edit your distributions .repo file, located: On Fedora: /etc/yum.repos.d/fedora.repo and /etc/yum.repos.d/fedora-updates.repo, [fedora] sections On CentOS: /etc/yum.repos.d/CentOS-Base.repo, [base] and [updates] sections On Red Hat: /etc/yum/pluginconf.d/rhnplugin ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
@@ -41,7 +41,7 @@ Felix's Blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li >
+                        <li class="active">
                             <a href="/category/linux.html">Linux</a>
                         </li>
                         <li >
@@ -63,57 +63,187 @@ Felix's Blog            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="/python_virtualenv.html">Python 虚拟环境：Virtualenv</a></h2>
-                <div class="summary"><h3>virtualenv</h3>
-<p>virtualenv用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：</p>
-<ol>
-<li>在没有权限的情况下安装新套件</li>
-<li>不同应用可以使用不同的套件版本</li>
-<li>套件升级不影响其他应用</li>
-</ol>
-<h4>一、安装</h4>
-<p>安装easy_install</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
-</pre></div>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/PostgreSQL_YUM_Installation.html"
+                       rel="bookmark"
+                       title="Permalink to PostgreSQL YUM Installation">
+                        PostgreSQL YUM Installation
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-07-29T13:22:00"> 2014-07-29 (星期二)</time>
+    </span>
 
 
-<p>安装pip   </p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">pip</span>
-</pre></div>
 
-
-<p>安装virtualenv</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
-</pre></div>
-
-
-<h4>二、使用</h4>
-<ol>
-<li>
-<p>建立虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="p">[</span><span class="err">指定虛擬環境的名稱</span><span class="p">]</span>
-</pre></div>
-
-
-<p>例如下列指令会建立名称为“ENV”的虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="n">ENV</span>
-</pre></div>
-
-
-<p>默认情况下，虚拟环境会依赖系统环境中的site packages，就是说系统中已经安装好的第三方package也会安装在虚拟环境中，如果不想依赖这些package，那么可以加上参数 --no-site-packages建立虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">[</span><span class="err">虚拟环境名称</span><span class="p">]</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>启动虚拟环境</p>
-<div class="highlight"><pre><span class="n">cd ...</span></pre></div></li></ol>
-                    <a class="btn btn-default btn-xs" href="/python_virtualenv.html">more ...</a>
+<span class="label label-default">Tags</span>
+	<a href="/tag/postgresql.html">PostgreSQL</a>
+        /
+	<a href="/tag/yum.html">YUM</a>
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
+                <h3>Instructions</h3>
+<hr />
+<h4>Configure your YUM repository</h4>
+<p>Locate and edit your distributions .repo file, located:</p>
+<ul>
+<li>On Fedora: /etc/yum.repos.d/fedora.repo and /etc/yum.repos.d/fedora-updates.repo, [fedora] sections</li>
+<li>On CentOS: /etc/yum.repos.d/CentOS-Base.repo, [base] and [updates] sections</li>
+<li>On Red Hat: /etc/yum/pluginconf.d/rhnplugin.conf [main] section</li>
+</ul>
+<p>To the section(s) identified above, you need to append a line (otherwise dependencies might resolve to the postgresql supplied by the base repository):</p>
+<div class="highlight"><pre><span class="n">exclude</span><span class="o">=</span><span class="n">postgresql</span><span class="o">*</span>
+</pre></div>
+
+
+<h4>Install PGDG RPM file</h4>
+<p>A PGDG file is available for each distribution/architecture/database version combination. Browse http://yum.postgresql.org and find your correct RPM. For example, to install PostgreSQL 9.3 on CentOS 6 64-bit:</p>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">localinstall</span> <span class="n">http</span><span class="o">:</span><span class="c1">//yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm</span>
+</pre></div>
+
+
+<h4>Install PostgreSQL</h4>
+<p>To list available packages:</p>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">list</span> <span class="n">postgres</span><span class="o">*</span>
+</pre></div>
+
+
+<p>For example, to install a basic PostgreSQL 9.3 server:</p>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">install</span> <span class="n">postgresql93</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+
+
+<p>Other packages can be installed according to your needs.</p>
+<h4>Post-installation commands</h4>
+<p>After installing the packages, a database needs to be initialized and configured.</p>
+<p>In the commands below, the value of <name> will vary depending on the version of PostgreSQL used.</p>
+<p>For PostgreSQL version 9.0 and above, the <name> includes the major.minor version of PostgreSQL, e.g., postgresql-9.3</p>
+<p>For versions 8.x, the <name> is always postgresql (without the version signifier).</p>
+<h4>Data Directory</h4>
+<p>The PostgreSQL data directory contains all of the data files for the database. The variable PGDATA is used to reference this directory.</p>
+<p>For PostgreSQL version 9.0 and above, the default data directory is:</p>
+<div class="highlight"><pre><span class="p">/</span><span class="nb">var</span><span class="p">/</span><span class="nx">lib</span><span class="p">/</span><span class="nx">pgsql</span><span class="o">/&lt;</span><span class="nb">name</span><span class="o">&gt;/</span><span class="kd">data</span>
+</pre></div>
+
+
+<p>For example:</p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span><span class="mf">9.3</span><span class="o">/</span><span class="n">data</span>
+</pre></div>
+
+
+<h4>Initialize</h4>
+<p>The first command (only needed once) is to initialize the database in PGDATA.</p>
+<div class="highlight"><pre><span class="nx">service</span> <span class="o">&lt;</span><span class="nb">name</span><span class="o">&gt;</span> <span class="nx">initdb</span>
+</pre></div>
+
+
+<p>E.g. for version 9.3:</p>
+<div class="highlight"><pre><span class="n">service</span> <span class="n">postgresql</span><span class="o">-</span><span class="mf">9.3</span> <span class="n">initdb</span>
+</pre></div>
+
+
+<p>If the previous command did not work, try directly calling the setup binary, located in a similar naming scheme:</p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">pgsql</span><span class="o">-</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">postgresqlyx</span><span class="o">-</span><span class="n">setup</span> <span class="n">initdb</span>
+</pre></div>
+
+
+<p>E.g. for version 9.3:</p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">pgsql</span><span class="o">-</span><span class="mf">9.3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">postgresql93</span><span class="o">-</span><span class="n">setup</span> <span class="n">initdb</span>
+</pre></div>
+
+
+<h4>Startup</h4>
+<p>If you want PostgreSQL to start automatically when the OS starts:</p>
+<div class="highlight"><pre><span class="nx">chkconfig</span> <span class="o">&lt;</span><span class="nb">name</span><span class="o">&gt;</span> <span class="k">on</span>
+</pre></div>
+
+
+<p>E.g. for version 9.3:</p>
+<div class="highlight"><pre><span class="n">chkconfig</span> <span class="n">postgresql</span><span class="o">-</span><span class="mf">9.3</span> <span class="n">on</span>
+</pre></div>
+
+
+<h4>Control service</h4>
+<p>To control the database service, use:</p>
+<div class="highlight"><pre><span class="nx">service</span> <span class="o">&lt;</span><span class="nb">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nb">command</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>where <command> can be:</p>
+<ul>
+<li>start : start the database</li>
+<li>stop : stop the database</li>
+<li>restart : stop/start the database; used to read changes to core configuration files</li>
+<li>reload : reload pg_hba.conf file while keeping database running</li>
+</ul>
+<p>E.g. to start version 9.3:</p>
+<div class="highlight"><pre><span class="n">service</span> <span class="n">postgresql</span><span class="o">-</span><span class="mf">9.3</span> <span class="n">start</span>
+</pre></div>
+
+
+<h4>Test Database</h4>
+<h3>Removing</h3>
+<hr />
+<p>To remove everything:</p>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">erase</span> <span class="n">postgresql93</span><span class="o">*</span>
+</pre></div>
+
+
+<p>Or remove individual packages as desired.</p>
+<h3>Python Support</h3>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">install</span> <span class="n">postgresql93</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+
+
+<p>and  try compiling PostgreSQL and including generated bin files in your $PATH? Like:</p>
+<div class="highlight"><pre><span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">compiled</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">bin</span><span class="o">:</span><span class="s">&quot;$PATH&quot;</span>
+</pre></div>
+
+
+<p>than</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">psycopg2</span>
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'xdevcn'; // required: replace example with your forum shortname
+//            //            var disqus_identifier = 'PostgreSQL_YUM_Installation';
+//            //            var disqus_url = '/PostgreSQL_YUM_Installation.html';
+//            var disqus_config = function () {
+//                this.language = "zh";
+//            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar">
