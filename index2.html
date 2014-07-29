@@ -64,6 +64,15 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="/pelican-solid-red.html">去除Pelican代码块中的<span class="err"></a></h2>
+                <div class="summary"><p>在使用Pelican生成博客时，代码块中经常会出现红色边框，查看源文件发现红色边框是被添加了<code>class="err"</code>导致，于是找到主题的css文件中，去除了以下代码，红框就再也不会出现了。</p>
+<div class="highlight"><pre><span class="p">.</span><span class="n">highlight</span> <span class="p">.</span><span class="n">err</span> <span class="p">{</span> <span class="n">border</span><span class="o">:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="err">#</span><span class="n">FF0000</span> <span class="p">}</span> <span class="o">/</span> <span class="n">Error</span> <span class="o">/</span>
+</pre></div>
+                    <a class="btn btn-default btn-xs" href="/pelican-solid-red.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/pelican.html">用Pelican和Github搭建免费个人博客</a></h2>
                 <div class="summary"><h3>Pelican介绍</h3>
 <p>Pelican是一个用Python语言编写的静态网站生成器，支持使用restructuredText和Markdown写文章，配置灵活，扩展性强，有许多优秀的主题和插件可供使用。</p>
@@ -156,18 +165,8 @@ Felix's Blog            </a>
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/github-pages.html">
                                 github pages
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/linux.html">
-                                linux
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -176,38 +175,18 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
+                            <a href="/tag/linux.html">
+                                linux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/python.html">
+                                python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
                             <a href="/tag/pelican.html">
                                 pelican
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenvwrapper.html">
-                                Virtualenvwrapper
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pychram.html">
-                                pychram
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/tty.html">
-                                tty
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenv.html">
-                                virtualenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ubuntu.html">
-                                ubuntu
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -216,13 +195,13 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/markdown.html">
-                                markdown
+                            <a href="/tag/mysql.html">
+                                mysql
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
+                            <a href="/tag/markdown.html">
+                                markdown
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -231,18 +210,58 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/pyenv.html">
-                                pyenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
                             <a href="/tag/jetbrains.html">
                                 jetbrains
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pyenv.html">
+                                pyenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql-python.html">
+                                mysql-python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ubuntu.html">
+                                ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pychram.html">
+                                pychram
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/tty.html">
+                                tty
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pip.html">
+                                pip
                             </a>
                         </li>
                     </ul>

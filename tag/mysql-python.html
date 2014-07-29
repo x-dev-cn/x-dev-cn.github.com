@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>iptables - Felix's Blog</title>
+    <title>mysql-python - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -64,31 +64,11 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="/centos_iptables.html">Centos配置iptables防火墙(转)</a></h2>
-                <div class="summary"><p>本文转自 <a href="http://www.woxplife.com/articles/404.html">http://www.woxplife.com/articles/404.html</a></p>
-<p>虽说阿里云推出了云盾服务，但是自己再加一层防火墙总归是更安全些，下面是我在阿里云vps上配置防火墙的过程，目前只配置INPUT。OUTPUT和FORWORD都是ACCEPT的规则</p>
-<h3>一、检查iptables服务状态</h3>
-<p>首先检查iptables服务的状态</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">status</span>
-<span class="nl">iptables:</span> <span class="n">Firewall</span> <span class="n">is</span> <span class="n">not</span> <span class="n">running</span><span class="p">.</span>
+                <h2><a href="/ubuntu_pip_mysql-python.html">pip install mysql-python fails with EnvironmentError: mysql_config not found</a></h2>
+                <div class="summary"><p>ubuntu: </p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
-
-
-<p>说明iptables服务是有安装的，但是没有启动服务。
-如果没有安装的话可以直接yum安装</p>
-<div class="highlight"><pre><span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">iptables</span>
-</pre></div>
-
-
-<p>启动iptables</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">start</span>
-<span class="nl">iptables:</span> <span class="n">Applying</span> <span class="n">firewall</span> <span class="n">rules</span><span class="o">:</span>                         <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
-</pre></div>
-
-
-<p>看一下当前iptables的配置情况</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">iptables</span> <span class="o">-</span><span class="n">L</span> <span class="o">-</span><span class="n">n ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/centos_iptables.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="/ubuntu_pip_mysql-python.html">more ...</a>
                 </div>
             </article>
             <hr/>

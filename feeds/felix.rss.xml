@@ -19,7 +19,9 @@ The weird thing is that the file is committed but the messages window displays a
 svn &lt;span class="s2"&gt;&amp;quot;$@&amp;quot;&lt;/span&gt;
 &lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;LC_MESSAGES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$LC_TMP&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Sat, 26 Jul 2014 20:16:00 +0800</pubDate><guid>tag:,2014-07-26:jetbrains_svn.html</guid><category>jetbrains</category><category>pychram</category></item><item><title>ubuntu tty 中文支持</title><link>/ubuntu_tty.html</link><description>&lt;p&gt;tty 中文乱码，解决方案：安装 zhcon 或者 fbterm。只介绍fbterm。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Sat, 26 Jul 2014 20:16:00 +0800</pubDate><guid>tag:,2014-07-26:jetbrains_svn.html</guid><category>jetbrains</category><category>pychram</category></item><item><title>pip install mysql-python fails with EnvironmentError: mysql_config not found</title><link>/ubuntu_pip_mysql-python.html</link><description>&lt;p&gt;ubuntu: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;libmysqlclient&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Tue, 22 Jul 2014 21:40:00 +0800</pubDate><guid>tag:,2014-07-22:ubuntu_pip_mysql-python.html</guid><category>pip</category><category>mysql-python</category></item><item><title>ubuntu tty 中文支持</title><link>/ubuntu_tty.html</link><description>&lt;p&gt;tty 中文乱码，解决方案：安装 zhcon 或者 fbterm。只介绍fbterm。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;安装 fbterm&lt;/p&gt;
