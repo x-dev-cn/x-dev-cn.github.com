@@ -42,6 +42,9 @@ Felix's Blog            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                         <li >
+                            <a href="/category/java.html">Java</a>
+                        </li>
+                        <li >
                             <a href="/category/linux.html">Linux</a>
                         </li>
                         <li >
@@ -63,6 +66,100 @@ Felix's Blog            </a>
     <div class="row">
         <div class="col-sm-9">
 
+            <article>
+                <h2><a href="/centos_mysql.html">CentOS安装配置mysql</a></h2>
+                <div class="summary"><h3>一、卸载自带mysql</h3>
+<p>因为mysql数据库在Linux上实在是太流行了，所以目前下载的主流Linux系统版本基本上都集成了mysql数据库在里面，我们可以通过如下命令来查看我们的操作系统上是否已经安装了mysql数据库</p>
+<div class="highlight"><pre><span class="c"># rpm -qa | grep mysql　　// 这个命令就会查看该操作系统上是否已经安装了mysql数据库</span>
+</pre></div>
+
+
+<p>有的话，我们就通过 rpm -e 命令 或者 rpm -e --nodeps 命令来卸载掉</p>
+<div class="highlight"><pre><span class="c"># rpm -e mysql　　// 普通删除模式</span>
+<span class="c"># rpm -e --nodeps mysql　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除</span>
+</pre></div>
+
+
+<p>在删除完以后我们可以通过 <code>rpm -qa | grep mysql</code> 命令来查看mysql是否已经卸载成功！！</p>
+<h3>二、通过yum来进行mysql的安装</h3>
+<div class="highlight"><pre><span class="c"># yum install -y mysql-server mysql mysql-deve</span>
+</pre></div>
+
+
+<p>安装完成后可以通过如下命令，查看刚安装好的mysql-server的版本</p>
+<div class="highlight"><pre><span class="c"># rpm -qi ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/centos_mysql.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/centos_iptables.html">Centos配置iptables防火墙(转)</a></h2>
+                <div class="summary"><p>本文转自 <a href="http://www.woxplife.com/articles/404.html">http://www.woxplife.com/articles/404.html</a></p>
+<p>虽说阿里云推出了云盾服务，但是自己再加一层防火墙总归是更安全些，下面是我在阿里云vps上配置防火墙的过程，目前只配置INPUT。OUTPUT和FORWORD都是ACCEPT的规则</p>
+<h3>一、检查iptables服务状态</h3>
+<p>首先检查iptables服务的状态</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">status</span>
+<span class="nl">iptables:</span> <span class="n">Firewall</span> <span class="n">is</span> <span class="n">not</span> <span class="n">running</span><span class="p">.</span>
+</pre></div>
+
+
+<p>说明iptables服务是有安装的，但是没有启动服务。
+如果没有安装的话可以直接yum安装</p>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">iptables</span>
+</pre></div>
+
+
+<p>启动iptables</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">start</span>
+<span class="nl">iptables:</span> <span class="n">Applying</span> <span class="n">firewall</span> <span class="n">rules</span><span class="o">:</span>                         <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
+</pre></div>
+
+
+<p>看一下当前iptables的配置情况</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">woxplife</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">iptables</span> <span class="o">-</span><span class="n">L</span> <span class="o">-</span><span class="n">n ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/centos_iptables.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/centos_ssh_ftp_port.html">linux修改SSH和FTP默认端口</a></h2>
+                <div class="summary"><h3>修改SSH端口</h3>
+<p>Linux的默认SSH端口是22</p>
+<p>第一步：</p>
+<div class="highlight"><pre><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
+</pre></div>
+
+
+<p>找到#Port 22一段，这里是标识默认使用22端口，修改为如下：
+Port 22
+Port 3456
+注意：先不要删除Port 22，以免发生意外无法登录。
+保存退出，然后执行</p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">sshd</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>或</p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>或</p>
+<div class="highlight"><pre><span class="n">service</span> <span class="n">sshd</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>重启SSH服务，这样SSH端口将同时工作与22和3456上。测试成功后再关闭22端口。
+如果没有启用防火墙或者防火墙没有屏蔽端口，就可以直接测试新端口是否可用了。</p>
+<h3>修改vsftpd端口</h3>
+<ol>
+<li>
+<p>修改(新增)FTP配置文件vsftpd.conf</p>
+<div class="highlight"><pre><span class="c"># vi /etc/vsftpd ...</span></pre></div></li></ol>
+                    <a class="btn btn-default btn-xs" href="/centos_ssh_ftp_port.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="/centos_svn_server.html">CentOS安装配置SVN服务器</a></h2>
                 <div class="summary"><h4>安装说明</h4>
@@ -211,21 +308,6 @@ Felix's Blog            </a>
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/centos.html">
-                                CentOS
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/github-pages.html">
-                                github pages
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/linux.html">
                                 linux
                             </a>
@@ -235,49 +317,29 @@ Felix's Blog            </a>
                                 pelican
                             </a>
                         </li>
-                        <li class="list-group-item tag-2">
+                        <li class="list-group-item tag-1">
                             <a href="/tag/postgresql.html">
                                 PostgreSQL
                             </a>
                         </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ubuntu.html">
-                                ubuntu
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/github-pages.html">
+                                github pages
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/centos.html">
+                                CentOS
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/python.html">
+                                python
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/yum.html">
-                                YUM
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/iptables.html">
-                                iptables
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/tty.html">
-                                tty
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql-python.html">
-                                mysql-python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/jetbrains.html">
-                                jetbrains
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pychram.html">
-                                pychram
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
+                            <a href="/tag/geometry.html">
+                                Geometry
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -291,23 +353,13 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
                             <a href="/tag/pip.html">
                                 pip
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/pyenv.html">
-                                pyenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenv.html">
-                                virtualenv
+                            <a href="/tag/hibernate.html">
+                                hibernate
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -316,8 +368,68 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
+                            <a href="/tag/spring-mvc.html">
+                                Spring MVC
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/tty.html">
+                                tty
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ubuntu.html">
+                                ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql-python.html">
+                                mysql-python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pyenv.html">
+                                pyenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/iptables.html">
+                                iptables
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/yum.html">
+                                YUM
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pychram.html">
+                                pychram
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
                             <a href="/tag/markdown.html">
                                 markdown
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/jetbrains.html">
+                                jetbrains
                             </a>
                         </li>
                     </ul>

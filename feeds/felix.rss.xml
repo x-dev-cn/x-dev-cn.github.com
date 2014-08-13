@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Felix's Blog</title><link>/</link><description></description><atom:link href="/feeds/felix.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 29 Jul 2014 14:02:00 +0800</lastBuildDate><item><title>PostgreSQL 配置</title><link>/PostgreSQL_settings.html</link><description>&lt;h4&gt;修改PostgreSQL数据库的默认用户postgres的密码(注意不是linux系统帐号)&lt;/h4&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Felix's Blog</title><link>/</link><description></description><atom:link href="/feeds/felix.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 08 Aug 2014 10:00:00 +0800</lastBuildDate><item><title>The TDS protocol does not support JDBC datatype 2002</title><link>/hibernate_Geometry.html</link><description>&lt;p&gt;hibernate 操作Geometry类型为null时返回The TDS protocol does not support JDBC datatype 2002，解决方法如下：&lt;/p&gt;
+&lt;p&gt;引用自&lt;a href="http://sourceforge.net/p/jtds/discussion/104388/thread/5d7d1dad/?limit=25"&gt;http://sourceforge.net/p/jtds/discussion/104388/thread/5d7d1dad/?limit=25&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I found that the JDBC datatype "2002" corresponds to a java.sql.Types.STRUCT&lt;/p&gt;
+&lt;p&gt;The TdsData.getNativeType(JtdsConnection connection, ParamInfo pi) does not support type STRUCT.&lt;/p&gt;
+&lt;p&gt;JtdsPreparedStatement method setNull sets the jdbcType, based on the sqlType sent from Hibernate spatial.&lt;/p&gt;
+&lt;p&gt;In JtdsPreparedStatement.setNull (line 852), I found that both CLOB and BLOB had special cases for setting the value to null. I replicated that code for setting type STRUCT to null.&lt;/p&gt;
+&lt;p&gt;if (sqlType == java.sql.Types.CLOB) {
+sqlType = java.sql.Types.LONGVARCHAR;
+} else if (sqlType == java.sql.Types.BLOB) {
+sqlType = java.sql.Types.LONGVARBINARY;
+} else if (sqlType == java.sql.Types.STRUCT) {
+sqlType = java.sql.Types.LONGVARBINARY;
+}&lt;/p&gt;
+&lt;p&gt;This fixes the issue I found, but I don't know if there are other unintended consequences.&lt;/p&gt;
+&lt;p&gt;Is this the appropriate place for a fix? Or should I update TdsData.getNativeType&lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Fri, 08 Aug 2014 10:00:00 +0800</pubDate><guid>tag:,2014-08-08:hibernate_Geometry.html</guid><category>hibernate</category><category>Geometry</category></item><item><title>Spring MVC 在jsp中获取controller的访问地址</title><link>/spring_mvc_geturl.html</link><description>&lt;p&gt;在jsp页面中使用&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getRequestURI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;获取到的是controller中映射到的jsp页面的地址，如果需要获取请求的地址，需要使用&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;javax.servlet.forward.request_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Thu, 31 Jul 2014 08:45:00 +0800</pubDate><guid>tag:,2014-07-31:spring_mvc_geturl.html</guid><category>Spring MVC</category></item><item><title>PostgreSQL 开启 UUID</title><link>/PostgreSQL_UUID.html</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;felix&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;centos&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;yum&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;postgresql93&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x86_64&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;felix&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;centos&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;su&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+
+&lt;span class="n"&gt;bash&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;4.1&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt;
+
+&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;CREATE&lt;/span&gt; &lt;span class="n"&gt;EXTENSION&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;uuid-ossp&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;CREATE&lt;/span&gt; &lt;span class="n"&gt;EXTENSION&lt;/span&gt;
+&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="n"&gt;uuid_generate_v4&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;uuid_generate_v4&lt;/span&gt;
+&lt;span class="o"&gt;--------------------------------------&lt;/span&gt;
+&lt;span class="n"&gt;e34f4b0b&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;aeae&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4999&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bda8&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;08&lt;/span&gt;&lt;span class="n"&gt;eb9705dcc2&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Tue, 29 Jul 2014 14:02:00 +0800</pubDate><guid>tag:,2014-07-29:PostgreSQL_UUID.html</guid><category>PostgreSQL</category></item><item><title>PostgreSQL 配置</title><link>/PostgreSQL_settings.html</link><description>&lt;h4&gt;修改PostgreSQL数据库的默认用户postgres的密码(注意不是linux系统帐号)&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;PostgreSQL登录(使用psql客户端登录)&lt;/p&gt;

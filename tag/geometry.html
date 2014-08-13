@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>ssh - Felix's Blog</title>
+    <title>Geometry - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -67,41 +67,14 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="/centos_ssh_ftp_port.html">linux修改SSH和FTP默认端口</a></h2>
-                <div class="summary"><h3>修改SSH端口</h3>
-<p>Linux的默认SSH端口是22</p>
-<p>第一步：</p>
-<div class="highlight"><pre><span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
-</pre></div>
-
-
-<p>找到#Port 22一段，这里是标识默认使用22端口，修改为如下：
-Port 22
-Port 3456
-注意：先不要删除Port 22，以免发生意外无法登录。
-保存退出，然后执行</p>
-<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">sshd</span> <span class="n">restart</span>
-</pre></div>
-
-
-<p>或</p>
-<div class="highlight"><pre><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
-</pre></div>
-
-
-<p>或</p>
-<div class="highlight"><pre><span class="n">service</span> <span class="n">sshd</span> <span class="n">restart</span>
-</pre></div>
-
-
-<p>重启SSH服务，这样SSH端口将同时工作与22和3456上。测试成功后再关闭22端口。
-如果没有启用防火墙或者防火墙没有屏蔽端口，就可以直接测试新端口是否可用了。</p>
-<h3>修改vsftpd端口</h3>
-<ol>
-<li>
-<p>修改(新增)FTP配置文件vsftpd.conf</p>
-<div class="highlight"><pre><span class="c"># vi /etc/vsftpd ...</span></pre></div></li></ol>
-                    <a class="btn btn-default btn-xs" href="/centos_ssh_ftp_port.html">more ...</a>
+                <h2><a href="/hibernate_Geometry.html">The TDS protocol does not support JDBC datatype 2002</a></h2>
+                <div class="summary"><p>hibernate 操作Geometry类型为null时返回The TDS protocol does not support JDBC datatype 2002，解决方法如下：</p>
+<p>引用自<a href="http://sourceforge.net/p/jtds/discussion/104388/thread/5d7d1dad/?limit=25">http://sourceforge.net/p/jtds/discussion/104388/thread/5d7d1dad/?limit=25</a></p>
+<blockquote>
+<p>I found that the JDBC datatype "2002" corresponds to a java.sql.Types.STRUCT</p>
+<p>The TdsData.getNativeType(JtdsConnection connection, ParamInfo pi) does not support type STRUCT.</p>
+<p>JtdsPreparedStatement ...</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="/hibernate_Geometry.html">more ...</a>
                 </div>
             </article>
             <hr/>
