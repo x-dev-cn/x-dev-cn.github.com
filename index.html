@@ -67,6 +67,25 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="/PostgreSQL_UUID.html">PostgreSQL 开启 UUID</a></h2>
+                <div class="summary"><div class="highlight"><pre><span class="p">[</span><span class="n">felix</span><span class="err">@</span><span class="n">centos</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">postgresql93</span><span class="o">-</span><span class="n">contrib</span><span class="p">.</span><span class="n">x86_64</span>
+<span class="p">[</span><span class="n">felix</span><span class="err">@</span><span class="n">centos</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">su</span> <span class="n">postgres</span>
+
+<span class="n">bash</span><span class="o">-</span><span class="mf">4.1</span><span class="err">$</span> <span class="n">psql</span>
+
+<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">CREATE</span> <span class="n">EXTENSION</span> <span class="s">&quot;uuid-ossp&quot;</span><span class="p">;</span>
+<span class="n">CREATE</span> <span class="n">EXTENSION</span>
+<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">select</span> <span class="n">uuid_generate_v4</span><span class="p">()</span> <span class="p">;</span>
+<span class="n">uuid_generate_v4</span>
+<span class="o">--------------------------------------</span>
+<span class="n">e34f4b0b</span><span class="o">-</span><span class="n">aeae</span><span class="o">-</span><span class="mi">4999</span><span class="o">-</span><span class="n">bda8</span><span class="o">-</span><span class="mi">08</span><span class="n">eb9705dcc2</span>
+<span class="p">(</span><span class="mi">1</span> <span class="n">row</span><span class="p">)</span>
+</pre></div>
+                    <a class="btn btn-default btn-xs" href="/PostgreSQL_UUID.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/hibernate_Geometry.html">The TDS protocol does not support JDBC datatype 2002</a></h2>
                 <div class="summary"><p>hibernate 操作Geometry类型为null时返回The TDS protocol does not support JDBC datatype 2002，解决方法如下：</p>
 <p>引用自<a href="http://sourceforge.net/p/jtds/discussion/104388/thread/5d7d1dad/?limit=25">http://sourceforge.net/p/jtds/discussion/104388/thread/5d7d1dad/?limit=25</a></p>
@@ -89,25 +108,6 @@ Felix's Blog            </a>
 <div class="highlight"><pre><span class="n">request</span><span class="p">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="s">&quot;javax.servlet.forward.request_uri&quot;</span><span class="p">)</span>
 </pre></div>
                     <a class="btn btn-default btn-xs" href="/spring_mvc_geturl.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/PostgreSQL_UUID.html">PostgreSQL 开启 UUID</a></h2>
-                <div class="summary"><div class="highlight"><pre><span class="p">[</span><span class="n">felix</span><span class="err">@</span><span class="n">centos</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">postgresql93</span><span class="o">-</span><span class="n">contrib</span><span class="p">.</span><span class="n">x86_64</span>
-<span class="p">[</span><span class="n">felix</span><span class="err">@</span><span class="n">centos</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">su</span> <span class="n">postgres</span>
-
-<span class="n">bash</span><span class="o">-</span><span class="mf">4.1</span><span class="err">$</span> <span class="n">psql</span>
-
-<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">CREATE</span> <span class="n">EXTENSION</span> <span class="s">&quot;uuid-ossp&quot;</span><span class="p">;</span>
-<span class="n">CREATE</span> <span class="n">EXTENSION</span>
-<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">select</span> <span class="n">uuid_generate_v4</span><span class="p">()</span> <span class="p">;</span>
-<span class="n">uuid_generate_v4</span>
-<span class="o">--------------------------------------</span>
-<span class="n">e34f4b0b</span><span class="o">-</span><span class="n">aeae</span><span class="o">-</span><span class="mi">4999</span><span class="o">-</span><span class="n">bda8</span><span class="o">-</span><span class="mi">08</span><span class="n">eb9705dcc2</span>
-<span class="p">(</span><span class="mi">1</span> <span class="n">row</span><span class="p">)</span>
-</pre></div>
-                    <a class="btn btn-default btn-xs" href="/PostgreSQL_UUID.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -321,8 +321,8 @@ The weird thing is that the file is committed but the messages window displays a
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/linux.html">
-                                linux
+                            <a href="/tag/python.html">
+                                python
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -336,23 +336,18 @@ The weird thing is that the file is committed but the messages window displays a
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/github-pages.html">
-                                github pages
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/centos.html">
                                 CentOS
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
+                            <a href="/tag/github-pages.html">
+                                github pages
                             </a>
                         </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/geometry.html">
-                                Geometry
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/linux.html">
+                                linux
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -361,23 +356,8 @@ The weird thing is that the file is committed but the messages window displays a
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/ssh.html">
-                                ssh
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pip.html">
-                                pip
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/hibernate.html">
-                                hibernate
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
+                            <a href="/tag/pyenv.html">
+                                pyenv
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -386,43 +366,8 @@ The weird thing is that the file is committed but the messages window displays a
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/tty.html">
-                                tty
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ubuntu.html">
-                                ubuntu
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql-python.html">
-                                mysql-python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenv.html">
-                                virtualenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pyenv.html">
-                                pyenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/iptables.html">
-                                iptables
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
+                            <a href="/tag/pychram.html">
+                                pychram
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -431,18 +376,73 @@ The weird thing is that the file is committed but the messages window displays a
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/pychram.html">
-                                pychram
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
                             <a href="/tag/markdown.html">
                                 markdown
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
+                            <a href="/tag/hibernate.html">
+                                hibernate
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pip.html">
+                                pip
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/iptables.html">
+                                iptables
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
                             <a href="/tag/jetbrains.html">
                                 jetbrains
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ubuntu.html">
+                                ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/tty.html">
+                                tty
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/geometry.html">
+                                Geometry
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql-python.html">
+                                mysql-python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
                             </a>
                         </li>
                     </ul>
