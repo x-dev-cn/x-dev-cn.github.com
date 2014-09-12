@@ -53,6 +53,9 @@ Felix's Blog            </a>
                         <li >
                             <a href="/category/python.html">Python</a>
                         </li>
+                        <li >
+                            <a href="/category/sql.html">Sql</a>
+                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -66,6 +69,109 @@ Felix's Blog            </a>
     <div class="row">
         <div class="col-sm-9">
 
+            <article>
+                <h2><a href="/jetbrains_svn.html">jetbrains ide SVN 1.8 error</a></h2>
+                <div class="summary"><p>When I try to commit a file in a SVN 1.8 repository I get an annoying and wrong "Commit failed with errors" message popup.
+The weird thing is that the file is committed but the messages window displays a "Error: Wrong committed revision number: -1". When I check the ...</p>
+                    <a class="btn btn-default btn-xs" href="/jetbrains_svn.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/ubuntu_tty.html">ubuntu tty 中文支持</a></h2>
+                <div class="summary"><p>tty 中文乱码，解决方案：安装 zhcon 或者 fbterm。只介绍fbterm。</p>
+<ol>
+<li>
+<p>安装 fbterm</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">fbterm</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>问题 "cann't open frame buffer device!"</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">usermod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">video</span> <span class="n">username</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>问题"[input] can't change kernel keymap table, all shortcuts will NOT work,  see SECURITY NOTES section of man page for solution."</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo ...</span></pre></div></li></ol>
+                    <a class="btn btn-default btn-xs" href="/ubuntu_tty.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/python_pyenv.html">Python 版本管理：pyenv</a></h2>
+                <div class="summary"><p>需要使用新版本Python的相关功能，但是又不想要影响到系统自带的Python，这个时候就需要实现Python的多版本共存。</p>
+<p>pyenv可以很好的实现Python的多版本共存。</p>
+<h4>安装工具包</h4>
+<div class="highlight"><pre><span class="n">yum</span> <span class="n">groupinstall</span> <span class="s">&quot;Development tools&quot;</span>
+
+<span class="n">yum</span> <span class="n">install</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">bzip2</span><span class="o">-</span><span class="n">devel</span> <span class="n">openssl</span><span class="o">-</span><span class="n">devel</span> <span class="n">ncurses</span><span class="o">-</span><span class="n">devel</span> <span class="n">sqlite</span><span class="o">-</span><span class="n">devel</span> <span class="n">readline</span><span class="o">-</span><span class="n">devel</span> <span class="n">tk</span><span class="o">-</span><span class="n">devel</span> <span class="n">gdbm</span><span class="o">-</span><span class="n">devel</span> <span class="n">db4</span><span class="o">-</span><span class="n">devel</span> <span class="n">libpcap</span><span class="o">-</span><span class="n">devel</span> <span class="n">xz</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+
+
+<h4>安装pyenv</h4>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/yyuu/pyenv.git ~/.pyenv</span>
+<span class="err">$</span> <span class="n">echo</span> <span class="err">&#39;</span><span class="n">export</span> <span class="n">PYENV_ROOT</span><span class="o">=</span><span class="s">&quot;$HOME/.pyenv&quot;</span><span class="err">&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span>
+<span class="err">$</span> <span class="n">echo ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/python_pyenv.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/python_virtualenv.html">Python 虚拟环境：Virtualenv</a></h2>
+                <div class="summary"><h3>virtualenv</h3>
+<p>virtualenv用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：</p>
+<ol>
+<li>在没有权限的情况下安装新套件</li>
+<li>不同应用可以使用不同的套件版本</li>
+<li>套件升级不影响其他应用</li>
+</ol>
+<h4>一、安装</h4>
+<p>安装easy_install</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
+</pre></div>
+
+
+<p>安装pip   </p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">pip</span>
+</pre></div>
+
+
+<p>安装virtualenv</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
+</pre></div>
+
+
+<h4>二、使用</h4>
+<ol>
+<li>
+<p>建立虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="p">[</span><span class="err">指定虛擬環境的名稱</span><span class="p">]</span>
+</pre></div>
+
+
+<p>例如下列指令会建立名称为“ENV”的虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="n">ENV</span>
+</pre></div>
+
+
+<p>默认情况下，虚拟环境会依赖系统环境中的site packages，就是说系统中已经安装好的第三方package也会安装在虚拟环境中，如果不想依赖这些package，那么可以加上参数 --no-site-packages建立虚拟环境</p>
+<div class="highlight"><pre><span class="n">virtualenv</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">[</span><span class="err">虚拟环境名称</span><span class="p">]</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>启动虚拟环境</p>
+<div class="highlight"><pre><span class="n">cd ...</span></pre></div></li></ol>
+                    <a class="btn btn-default btn-xs" href="/python_virtualenv.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="/centos_mysql.html">CentOS安装配置mysql</a></h2>
                 <div class="summary"><h3>一、卸载自带mysql</h3>
@@ -215,64 +321,6 @@ Port 3456
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/pelican.html">用Pelican和Github搭建免费个人博客</a></h2>
-                <div class="summary"><h3>Pelican介绍</h3>
-<p>Pelican是一个用Python语言编写的静态网站生成器，支持使用restructuredText和Markdown写文章，配置灵活，扩展性强，有许多优秀的主题和插件可供使用。</p>
-<p>Pelican 的Github地址是：https://github.com/getpelican/pelican</p>
-<h3>安装Pelican</h3>
-<p>安装Pelican需要<code>python</code>环境和<code>git</code>，mac和linux一般都自带<code>python</code>，windows下需自行安装。为方便，再顺手装上<code>distribute</code>、<code>pip</code>、<code>virtualenv</code></p>
-<p>安装 Pelican</p>
-<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
-</pre></div>
-
-
-<p>安装Markdown</p>
-<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">Markdown</span>
-</pre></div>
-
-
-<h3>Markdown 免费编辑器</h3>
-<blockquote>
-<p>Windows 平台</p>
-<ul>
-<li><a href="http://markdownpad.com/">MarkdownPad</a></li>
-<li><a href="http://code52.org/DownmarkerWPF/">MarkPad</a></li>
-</ul>
-<p>Linux 平台</p>
-<ul>
-<li><a href="http://sourceforge.net/p/retext/home/ReText/">ReText</a></li>
-</ul>
-<p>Mac 平台</p>
-<ul>
-<li><a href="http://mouapp.com/">Mou</a></li>
-</ul>
-<p>在线编辑器</p>
-<ul>
-<li><a href="http://markable.in/">Markable.in ...</a></li></ul></blockquote>
-                    <a class="btn btn-default btn-xs" href="/pelican.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/markdown.html">Markdown Demo</a></h2>
-                <div class="summary"><h1>This is an H1</h1>
-<h2>this is an h2</h2>
-<h1>This is an H1</h1>
-<h2>This is an H2</h2>
-<h3>This is an H3</h3>
-<h4>This is an H4</h4>
-<h5>This is an H5</h5>
-<h6>This is an H6</h6>
-<h1>This is an H1</h1>
-<h2>This is an H2</h2>
-<h3>This is an H3</h3>
-<h4>This is an H4</h4>
-<h5>This is ...</h5>
-                    <a class="btn btn-default btn-xs" href="/markdown.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
     <ul class="pagination">
             <li class="prev"><a href="/index.html">&laquo;</a>
@@ -281,7 +329,10 @@ Port 3456
                         href="/index.html">1</a></li>
                 <li class="active"><a
                         href="/index2.html">2</a></li>
-            <li class="next disabled"><a href="#">&raquo;</a></li>
+                <li class=""><a
+                        href="/index3.html">3</a></li>
+            <li class="next"><a
+                    href="/index3.html">&raquo;</a></li>
     </ul>
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar">
@@ -308,18 +359,18 @@ Port 3456
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/postgresql.html">
-                                PostgreSQL
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/pelican.html">
                                 pelican
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/github-pages.html">
+                                github pages
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/postgresql.html">
+                                PostgreSQL
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -328,28 +379,38 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
+                            <a href="/tag/sql.html">
+                                sql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
                             <a href="/tag/centos.html">
                                 CentOS
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/github-pages.html">
-                                github pages
+                            <a href="/tag/python.html">
+                                python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="/tag/java.html">
+                                java
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="/tag/hibernate.html">
+                                hibernate
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/ssh.html">
-                                ssh
+                            <a href="/tag/json.html">
+                                json
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenv.html">
-                                virtualenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ubuntu.html">
-                                ubuntu
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -358,18 +419,63 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
                             <a href="/tag/mysql-python.html">
                                 mysql-python
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/spring-mvc.html">
-                                Spring MVC
+                            <a href="/tag/xml.html">
+                                xml
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenvwrapper.html">
-                                Virtualenvwrapper
+                            <a href="/tag/rollup.html">
+                                rollup
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pip.html">
+                                pip
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/jetbrains.html">
+                                jetbrains
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/markdown.html">
+                                markdown
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ubuntu.html">
+                                ubuntu
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -383,23 +489,13 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/markdown.html">
-                                markdown
+                            <a href="/tag/tty.html">
+                                tty
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/hibernate.html">
-                                hibernate
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/iptables.html">
-                                iptables
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
+                            <a href="/tag/spring-mvc.html">
+                                Spring MVC
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -408,28 +504,8 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/jetbrains.html">
-                                jetbrains
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pip.html">
-                                pip
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/tty.html">
-                                tty
+                            <a href="/tag/iptables.html">
+                                iptables
                             </a>
                         </li>
                     </ul>

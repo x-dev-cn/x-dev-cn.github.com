@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Virtualenvwrapper - Felix's Blog</title>
+    <title>SQL xml使用总结 - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,10 +11,10 @@
     
 
     <!-- Open Graph tags -->
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="Felix's Blog"/>
-            <meta property="og:url" content=""/>
-            <meta property="og:description" content="Felix's Blog"/>
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="SQL xml使用总结"/>
+            <meta property="og:url" content="/sql_xml.html"/>
+            <meta property="og:description" content=""/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
@@ -53,7 +53,7 @@ Felix's Blog            </a>
                         <li >
                             <a href="/category/python.html">Python</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="/category/sql.html">Sql</a>
                         </li>
             </ul>
@@ -69,57 +69,67 @@ Felix's Blog            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="/python_virtualenv.html">Python 虚拟环境：Virtualenv</a></h2>
-                <div class="summary"><h3>virtualenv</h3>
-<p>virtualenv用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：</p>
-<ol>
-<li>在没有权限的情况下安装新套件</li>
-<li>不同应用可以使用不同的套件版本</li>
-<li>套件升级不影响其他应用</li>
-</ol>
-<h4>一、安装</h4>
-<p>安装easy_install</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
-</pre></div>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/sql_xml.html"
+                       rel="bookmark"
+                       title="Permalink to SQL xml使用总结">
+                        SQL xml使用总结
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-08-30T19:40:00"> 2014-08-30 (星期六)</time>
+    </span>
 
 
-<p>安装pip   </p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">pip</span>
-</pre></div>
 
-
-<p>安装virtualenv</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
-</pre></div>
-
-
-<h4>二、使用</h4>
-<ol>
-<li>
-<p>建立虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="p">[</span><span class="err">指定虛擬環境的名稱</span><span class="p">]</span>
-</pre></div>
-
-
-<p>例如下列指令会建立名称为“ENV”的虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="n">ENV</span>
-</pre></div>
-
-
-<p>默认情况下，虚拟环境会依赖系统环境中的site packages，就是说系统中已经安装好的第三方package也会安装在虚拟环境中，如果不想依赖这些package，那么可以加上参数 --no-site-packages建立虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">[</span><span class="err">虚拟环境名称</span><span class="p">]</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>启动虚拟环境</p>
-<div class="highlight"><pre><span class="n">cd ...</span></pre></div></li></ol>
-                    <a class="btn btn-default btn-xs" href="/python_virtualenv.html">more ...</a>
+<span class="label label-default">Tags</span>
+	<a href="/tag/sql.html">sql</a>
+        /
+	<a href="/tag/xml.html">xml</a>
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
+                
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'xdevcn'; // required: replace example with your forum shortname
+//            //            var disqus_identifier = 'sql_xml';
+//            //            var disqus_url = '/sql_xml.html';
+//            var disqus_config = function () {
+//                this.language = "zh";
+//            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar">

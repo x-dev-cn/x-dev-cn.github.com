@@ -53,6 +53,9 @@ Felix's Blog            </a>
                         <li >
                             <a href="/category/python.html">Python</a>
                         </li>
+                        <li >
+                            <a href="/category/sql.html">Sql</a>
+                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -66,6 +69,31 @@ Felix's Blog            </a>
     <div class="row">
         <div class="col-sm-9">
 
+            <article>
+                <h2><a href="/java_hibernate_sql.html">hibernate 执行sql语句总结</a></h2>
+                <div class="summary"><h3>1.使用SQLQuery</h3>
+<p>hibernate对原生SQL查询执行的控制是通过SQLQuery接口进行的.</p>
+<div class="highlight"><pre><span class="n">Session</span><span class="p">.</span><span class="n">createSQLQuery</span><span class="p">();</span>
+</pre></div>
+
+
+<h4>1.1标量查询</h4>
+<p>最基本的SQL查询就是获得一个标量（数值）的列表。</p>
+<div class="highlight"><pre><span class="n">sess</span><span class="p">.</span><span class="n">createSQLQuery</span><span class="p">(</span><span class="s">&quot;SELECT * FROM CATS&quot;</span><span class="p">).</span><span class="n">list</span><span class="p">();</span>
+<span class="n">sess</span><span class="p">.</span><span class="n">createSQLQuery</span><span class="p">(</span><span class="s">&quot;SELECT ID, NAME, BIRTHDATE FROM CATS&quot;</span><span class="p">).</span><span class="n">list</span><span class="p">();</span>
+</pre></div>
+
+
+<p>将<code>返回一个Object数组(Object[])组成的List，数组每个元素都是CATS表的一个字段值</code>。Hibernate会使用ResultSetMetadata来判定返回的标量值的实际顺序和类型。
+如果要避免过多的使用ResultSetMetadata,或者只是为了更加明确的指名返回值，可以使用addScalar()。</p>
+<div class="highlight"><pre><span class="n">sess</span><span class="p">.</span><span class="n">createSQLQuery</span><span class="p">(</span><span class="s">&quot;SELECT * FROM CATS&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">addScalar</span><span class="p">(</span><span class="s">&quot;ID&quot;</span><span class="p">,</span> <span class="n">Hibernate</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">addScalar</span><span class="p">(</span><span class="s">&quot;NAME&quot;</span><span class="p">,</span> <span class="n">Hibernate</span><span class="p">.</span><span class="n">STRING</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">addScalar</span><span class="p">(</span><span class="s">&quot;BIRTHDATE&quot;</span><span class="p">,</span> <span class="n">Hibernate ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/java_hibernate_sql.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="/hibernate_Geometry.html">The TDS protocol does not support JDBC datatype 2002</a></h2>
                 <div class="summary"><p>hibernate 操作Geometry类型为null时返回The TDS protocol does not support JDBC datatype 2002，解决方法如下：</p>
@@ -104,18 +132,18 @@ Felix's Blog            </a>
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
-                            <a href="/tag/postgresql.html">
-                                PostgreSQL
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/python.html">
-                                python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="/tag/pelican.html">
                                 pelican
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/github-pages.html">
+                                github pages
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="/tag/postgresql.html">
+                                PostgreSQL
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -124,28 +152,38 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
+                            <a href="/tag/sql.html">
+                                sql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
                             <a href="/tag/centos.html">
                                 CentOS
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/github-pages.html">
-                                github pages
+                            <a href="/tag/python.html">
+                                python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="/tag/java.html">
+                                java
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="/tag/hibernate.html">
+                                hibernate
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/ssh.html">
-                                ssh
+                            <a href="/tag/json.html">
+                                json
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenv.html">
-                                virtualenv
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ubuntu.html">
-                                ubuntu
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -154,18 +192,63 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
                             <a href="/tag/mysql-python.html">
                                 mysql-python
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/spring-mvc.html">
-                                Spring MVC
+                            <a href="/tag/xml.html">
+                                xml
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenvwrapper.html">
-                                Virtualenvwrapper
+                            <a href="/tag/rollup.html">
+                                rollup
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ftp.html">
+                                ftp
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pip.html">
+                                pip
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenv.html">
+                                virtualenv
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/svn.html">
+                                svn
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/jetbrains.html">
+                                jetbrains
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/markdown.html">
+                                markdown
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ubuntu.html">
+                                ubuntu
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -179,23 +262,13 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/markdown.html">
-                                markdown
+                            <a href="/tag/tty.html">
+                                tty
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/hibernate.html">
-                                hibernate
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/iptables.html">
-                                iptables
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
+                            <a href="/tag/spring-mvc.html">
+                                Spring MVC
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -204,28 +277,8 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/jetbrains.html">
-                                jetbrains
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pip.html">
-                                pip
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/svn.html">
-                                svn
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/tty.html">
-                                tty
+                            <a href="/tag/iptables.html">
+                                iptables
                             </a>
                         </li>
                     </ul>

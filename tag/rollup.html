@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Virtualenvwrapper - Felix's Blog</title>
+    <title>rollup - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -70,53 +70,15 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="/python_virtualenv.html">Python 虚拟环境：Virtualenv</a></h2>
-                <div class="summary"><h3>virtualenv</h3>
-<p>virtualenv用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：</p>
-<ol>
-<li>在没有权限的情况下安装新套件</li>
-<li>不同应用可以使用不同的套件版本</li>
-<li>套件升级不影响其他应用</li>
-</ol>
-<h4>一、安装</h4>
-<p>安装easy_install</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
-</pre></div>
-
-
-<p>安装pip   </p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">pip</span>
-</pre></div>
-
-
-<p>安装virtualenv</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
-</pre></div>
-
-
-<h4>二、使用</h4>
-<ol>
-<li>
-<p>建立虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="p">[</span><span class="err">指定虛擬環境的名稱</span><span class="p">]</span>
-</pre></div>
-
-
-<p>例如下列指令会建立名称为“ENV”的虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="n">ENV</span>
-</pre></div>
-
-
-<p>默认情况下，虚拟环境会依赖系统环境中的site packages，就是说系统中已经安装好的第三方package也会安装在虚拟环境中，如果不想依赖这些package，那么可以加上参数 --no-site-packages建立虚拟环境</p>
-<div class="highlight"><pre><span class="n">virtualenv</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">[</span><span class="err">虚拟环境名称</span><span class="p">]</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>启动虚拟环境</p>
-<div class="highlight"><pre><span class="n">cd ...</span></pre></div></li></ol>
-                    <a class="btn btn-default btn-xs" href="/python_virtualenv.html">more ...</a>
+                <h2><a href="/sql_rollup.html">SQL小计合计汇总</a></h2>
+                <div class="summary"><div class="highlight"><pre><span class="n">CREATE</span> <span class="n">TABLE</span> <span class="err">#</span><span class="n">t</span><span class="p">(</span><span class="n">province</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">city</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">score</span> <span class="kt">int</span><span class="p">)</span> 
+<span class="n">insert</span> <span class="n">into</span> <span class="err">#</span><span class="n">t</span> <span class="n">values</span><span class="p">(</span><span class="err">&#39;陕西</span><span class="sc">&#39;,&#39;</span><span class="err">西安&#39;</span><span class="p">,</span><span class="mi">3</span> <span class="p">)</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="err">#</span><span class="n">t</span> <span class="n">values</span><span class="p">(</span><span class="err">&#39;陕西</span><span class="sc">&#39;,&#39;</span><span class="err">安康&#39;</span><span class="p">,</span><span class="mi">4</span> <span class="p">)</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="err">#</span><span class="n">t</span> <span class="n">values</span><span class="p">(</span><span class="err">&#39;陕西</span><span class="sc">&#39;,&#39;</span><span class="err">汉中&#39;</span><span class="p">,</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="err">#</span><span class="n">t</span> <span class="n">values</span><span class="p">(</span><span class="err">&#39;广东</span><span class="sc">&#39;,&#39;</span><span class="err">广州&#39;</span><span class="p">,</span><span class="mi">5</span> <span class="p">)</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="err">#</span><span class="n">t</span> <span class="n">values</span><span class="p">(</span><span class="err">&#39;广东</span><span class="sc">&#39;,&#39;</span><span class="err">珠海&#39;</span><span class="p">,</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="err">#</span><span class="n">t</span> <span class="n">values ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/sql_rollup.html">more ...</a>
                 </div>
             </article>
             <hr/>
