@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>json - Felix's Blog</title>
+    <title>Linux - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -44,7 +44,7 @@ Felix's Blog            </a>
                         <li >
                             <a href="/category/java.html">Java</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="/category/linux.html">Linux</a>
                         </li>
                         <li >
@@ -70,30 +70,37 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="/java_json_JSONObject.html">JSONObject 过滤字段</a></h2>
-                <div class="summary"><p>使用net.sf.json.JSONObject包</p>
-<p>在使用JSONObject.fromObject把对象转换成json时，经常会有一些不需要的字段，可以通过配置文件设置忽略来精简json长度，并可忽略部分无法转换成json的字段，如空间变量。</p>
-<p>建立配置文件</p>
-<div class="highlight"><pre><span class="n">JsonConfig</span> <span class="n">jsonConfig</span> <span class="o">=</span> <span class="n">new</span> <span class="n">JsonConfig</span><span class="p">();</span>
+                <h2><a href="/centos_svn_server.html">CentOS安装配置SVN服务器</a></h2>
+                <div class="summary"><h4>安装说明</h4>
+<p>系统环境: CentOS 6.5
+安装方式: yum</p>
+<h4>检查已安装版本</h4>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">qa</span> <span class="n">subversion</span> <span class="c1">//检查是否安装了低版本的SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">remove</span> <span class="n">subversion</span> <span class="c1">//卸载旧版本SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">httpd</span> <span class="n">httpd</span><span class="o">-</span><span class="n">devel</span> <span class="n">subversion</span> <span class="n">mod_dav_svn</span> <span class="n">mod_auth_mysql</span> <span class="c1">//安装SVN</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">modules</span>
+<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="n">modules</span><span class="p">]</span><span class="err">#</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">svn</span> <span class="c1">//确认已已安装了SVN模块</span>
+<span class="n">mod_authz_svn</span><span class="p">.</span><span class="n">so</span>
+<span class="n">mod_dav_svn</span><span class="p">.</span><span class="n">so</span>
 </pre></div>
 
 
-<p>设置默认忽略</p>
-<div class="highlight"><pre><span class="n">jsonConfig</span><span class="p">.</span><span class="n">setIgnoreDefaultExcludes</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-</pre></div>
-
-
-<p>添加忽略字段</p>
-<div class="highlight"><pre><span class="n">jsonConfig</span><span class="p">.</span><span class="n">setExcludes</span><span class="p">(</span><span class="n">new</span> <span class="n">String</span><span class="p">[]{</span><span class="s">&quot;positions&quot;</span><span class="p">});</span>
-
-
-<span class="n">JSONObject</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="p">.</span><span class="n">fromObject</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="n">jsonConfig</span><span class="p">);</span>
-</pre></div>
-                    <a class="btn btn-default btn-xs" href="/java_json_JSONObject.html">more ...</a>
+<h4>验证安装</h4>
+<p>检验已经安装的SVN版本信息 ...</p>
+                    <a class="btn btn-default btn-xs" href="/centos_svn_server.html">more ...</a>
                 </div>
             </article>
             <hr/>
 
+    <ul class="pagination">
+            <li class="prev"><a href="/category/linux.html">&laquo;</a>
+            </li>
+                <li class=""><a
+                        href="/category/linux.html">1</a></li>
+                <li class="active"><a
+                        href="/category/linux2.html">2</a></li>
+            <li class="next disabled"><a href="#">&raquo;</a></li>
+    </ul>
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar">
 

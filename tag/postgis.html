@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>json - Felix's Blog</title>
+    <title>postgis - Felix's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -70,26 +70,20 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="/java_json_JSONObject.html">JSONObject 过滤字段</a></h2>
-                <div class="summary"><p>使用net.sf.json.JSONObject包</p>
-<p>在使用JSONObject.fromObject把对象转换成json时，经常会有一些不需要的字段，可以通过配置文件设置忽略来精简json长度，并可忽略部分无法转换成json的字段，如空间变量。</p>
-<p>建立配置文件</p>
-<div class="highlight"><pre><span class="n">JsonConfig</span> <span class="n">jsonConfig</span> <span class="o">=</span> <span class="n">new</span> <span class="n">JsonConfig</span><span class="p">();</span>
+                <h2><a href="/template_postgis.html">PostgreSQL 创建template_postgis模板</a></h2>
+                <div class="summary"><h4>Create PostGIS template</h4>
+<div class="highlight"><pre><span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
+<span class="n">psql</span> <span class="n">postgres</span>
+<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="err">\</span><span class="n">c</span> <span class="n">template1</span>
+<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">CREATE</span> <span class="n">EXTENSION</span> <span class="n">postgis</span><span class="p">;</span>
+<span class="n">createdb</span> <span class="n">geodata</span> <span class="o">-</span><span class="n">T</span> <span class="n">template1</span>
 </pre></div>
 
 
-<p>设置默认忽略</p>
-<div class="highlight"><pre><span class="n">jsonConfig</span><span class="p">.</span><span class="n">setIgnoreDefaultExcludes</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<p>or</p>
+<div class="highlight"><pre><span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="n">c</span> <span class="s">&quot;CREATE EXTENSION postgis;&quot;</span>
 </pre></div>
-
-
-<p>添加忽略字段</p>
-<div class="highlight"><pre><span class="n">jsonConfig</span><span class="p">.</span><span class="n">setExcludes</span><span class="p">(</span><span class="n">new</span> <span class="n">String</span><span class="p">[]{</span><span class="s">&quot;positions&quot;</span><span class="p">});</span>
-
-
-<span class="n">JSONObject</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="p">.</span><span class="n">fromObject</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="n">jsonConfig</span><span class="p">);</span>
-</pre></div>
-                    <a class="btn btn-default btn-xs" href="/java_json_JSONObject.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="/template_postgis.html">more ...</a>
                 </div>
             </article>
             <hr/>

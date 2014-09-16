@@ -70,6 +70,24 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="/template_postgis.html">PostgreSQL 创建template_postgis模板</a></h2>
+                <div class="summary"><h4>Create PostGIS template</h4>
+<div class="highlight"><pre><span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
+<span class="n">psql</span> <span class="n">postgres</span>
+<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="err">\</span><span class="n">c</span> <span class="n">template1</span>
+<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">CREATE</span> <span class="n">EXTENSION</span> <span class="n">postgis</span><span class="p">;</span>
+<span class="n">createdb</span> <span class="n">geodata</span> <span class="o">-</span><span class="n">T</span> <span class="n">template1</span>
+</pre></div>
+
+
+<p>or</p>
+<div class="highlight"><pre><span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="n">c</span> <span class="s">&quot;CREATE EXTENSION postgis;&quot;</span>
+</pre></div>
+                    <a class="btn btn-default btn-xs" href="/template_postgis.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/PostgreSQL_UUID.html">PostgreSQL 添加 UUID</a></h2>
                 <div class="summary"><div class="highlight"><pre><span class="p">[</span><span class="n">felix</span><span class="err">@</span><span class="n">centos</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">postgresql93</span><span class="o">-</span><span class="n">contrib</span><span class="p">.</span><span class="n">x86_64</span>
 <span class="p">[</span><span class="n">felix</span><span class="err">@</span><span class="n">centos</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">su</span> <span class="n">postgres</span>
@@ -287,29 +305,16 @@ Port 3456
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/centos_svn_server.html">CentOS安装配置SVN服务器</a></h2>
-                <div class="summary"><h4>安装说明</h4>
-<p>系统环境: CentOS 6.5
-安装方式: yum</p>
-<h4>检查已安装版本</h4>
-<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">qa</span> <span class="n">subversion</span> <span class="c1">//检查是否安装了低版本的SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">remove</span> <span class="n">subversion</span> <span class="c1">//卸载旧版本SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">httpd</span> <span class="n">httpd</span><span class="o">-</span><span class="n">devel</span> <span class="n">subversion</span> <span class="n">mod_dav_svn</span> <span class="n">mod_auth_mysql</span> <span class="c1">//安装SVN</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="o">/</span><span class="p">]</span><span class="err">#</span> <span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">modules</span>
-<span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">CentOS</span> <span class="n">modules</span><span class="p">]</span><span class="err">#</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">svn</span> <span class="c1">//确认已已安装了SVN模块</span>
-<span class="n">mod_authz_svn</span><span class="p">.</span><span class="n">so</span>
-<span class="n">mod_dav_svn</span><span class="p">.</span><span class="n">so</span>
-</pre></div>
 
-
-<h4>验证安装</h4>
-<p>检验已经安装的SVN版本信息 ...</p>
-                    <a class="btn btn-default btn-xs" href="/centos_svn_server.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-
+    <ul class="pagination">
+            <li class="prev disabled"><a href="#">&laquo;</a></li>
+                <li class="active"><a
+                        href="/category/linux.html">1</a></li>
+                <li class=""><a
+                        href="/category/linux2.html">2</a></li>
+            <li class="next"><a
+                    href="/category/linux2.html">&raquo;</a></li>
+    </ul>
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar">
 
@@ -335,6 +340,11 @@ Port 3456
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
+                            <a href="/tag/linux.html">
+                                linux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
                             <a href="/tag/pelican.html">
                                 pelican
                             </a>
@@ -350,18 +360,13 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/linux.html">
-                                linux
+                            <a href="/tag/centos.html">
+                                CentOS
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
                             <a href="/tag/sql.html">
                                 sql
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/centos.html">
-                                CentOS
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -380,53 +385,23 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/json.html">
-                                json
+                            <a href="/tag/pychram.html">
+                                pychram
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenvwrapper.html">
-                                Virtualenvwrapper
+                            <a href="/tag/pyenv.html">
+                                pyenv
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/yum.html">
-                                YUM
+                            <a href="/tag/markdown.html">
+                                markdown
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql-python.html">
-                                mysql-python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/xml.html">
-                                xml
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/rollup.html">
-                                rollup
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ssh.html">
-                                ssh
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pip.html">
-                                pip
+                            <a href="/tag/template.html">
+                                template
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -440,28 +415,13 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/jetbrains.html">
-                                jetbrains
+                            <a href="/tag/rollup.html">
+                                rollup
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/markdown.html">
-                                markdown
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ubuntu.html">
-                                ubuntu
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pychram.html">
-                                pychram
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/geometry.html">
-                                Geometry
+                            <a href="/tag/ftp.html">
+                                ftp
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -470,13 +430,68 @@ Port 3456
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
+                            <a href="/tag/xml.html">
+                                xml
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/jetbrains.html">
+                                jetbrains
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/geometry.html">
+                                Geometry
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql-python.html">
+                                mysql-python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ubuntu.html">
+                                ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pip.html">
+                                pip
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/yum.html">
+                                YUM
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
                             <a href="/tag/spring-mvc.html">
                                 Spring MVC
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/pyenv.html">
-                                pyenv
+                            <a href="/tag/json.html">
+                                json
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/postgis.html">
+                                postgis
                             </a>
                         </li>
                         <li class="list-group-item tag-4">

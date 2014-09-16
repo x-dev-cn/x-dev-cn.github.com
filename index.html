@@ -70,6 +70,24 @@ Felix's Blog            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="/template_postgis.html">PostgreSQL 创建template_postgis模板</a></h2>
+                <div class="summary"><h4>Create PostGIS template</h4>
+<div class="highlight"><pre><span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
+<span class="n">psql</span> <span class="n">postgres</span>
+<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="err">\</span><span class="n">c</span> <span class="n">template1</span>
+<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">CREATE</span> <span class="n">EXTENSION</span> <span class="n">postgis</span><span class="p">;</span>
+<span class="n">createdb</span> <span class="n">geodata</span> <span class="o">-</span><span class="n">T</span> <span class="n">template1</span>
+</pre></div>
+
+
+<p>or</p>
+<div class="highlight"><pre><span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="n">c</span> <span class="s">&quot;CREATE EXTENSION postgis;&quot;</span>
+</pre></div>
+                    <a class="btn btn-default btn-xs" href="/template_postgis.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/java_hibernate_sql.html">hibernate 执行sql语句总结</a></h2>
                 <div class="summary"><h3>1.使用SQLQuery</h3>
 <p>hibernate对原生SQL查询执行的控制是通过SQLQuery接口进行的.</p>
@@ -246,15 +264,6 @@ Felix's Blog            </a>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/ubuntu_pip_mysql-python.html">pip install mysql-python fails with EnvironmentError: mysql_config not found</a></h2>
-                <div class="summary"><p>ubuntu: </p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
-</pre></div>
-                    <a class="btn btn-default btn-xs" href="/ubuntu_pip_mysql-python.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
     <ul class="pagination">
             <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -292,6 +301,11 @@ Felix's Blog            </a>
                 <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group" id="tags">
                         <li class="list-group-item tag-1">
+                            <a href="/tag/linux.html">
+                                linux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
                             <a href="/tag/pelican.html">
                                 pelican
                             </a>
@@ -307,18 +321,13 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="/tag/linux.html">
-                                linux
+                            <a href="/tag/centos.html">
+                                CentOS
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
                             <a href="/tag/sql.html">
                                 sql
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="/tag/centos.html">
-                                CentOS
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -337,53 +346,23 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/json.html">
-                                json
+                            <a href="/tag/pychram.html">
+                                pychram
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/virtualenvwrapper.html">
-                                Virtualenvwrapper
+                            <a href="/tag/pyenv.html">
+                                pyenv
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/yum.html">
-                                YUM
+                            <a href="/tag/markdown.html">
+                                markdown
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/mysql.html">
-                                mysql
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/mysql-python.html">
-                                mysql-python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/xml.html">
-                                xml
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/rollup.html">
-                                rollup
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ftp.html">
-                                ftp
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ssh.html">
-                                ssh
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pip.html">
-                                pip
+                            <a href="/tag/template.html">
+                                template
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -397,28 +376,13 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/jetbrains.html">
-                                jetbrains
+                            <a href="/tag/rollup.html">
+                                rollup
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/markdown.html">
-                                markdown
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/ubuntu.html">
-                                ubuntu
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/pychram.html">
-                                pychram
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="/tag/geometry.html">
-                                Geometry
+                            <a href="/tag/ftp.html">
+                                ftp
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -427,13 +391,68 @@ Felix's Blog            </a>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
+                            <a href="/tag/xml.html">
+                                xml
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/jetbrains.html">
+                                jetbrains
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/virtualenvwrapper.html">
+                                Virtualenvwrapper
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/geometry.html">
+                                Geometry
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql-python.html">
+                                mysql-python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ubuntu.html">
+                                ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/pip.html">
+                                pip
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/mysql.html">
+                                mysql
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/ssh.html">
+                                ssh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/yum.html">
+                                YUM
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
                             <a href="/tag/spring-mvc.html">
                                 Spring MVC
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="/tag/pyenv.html">
-                                pyenv
+                            <a href="/tag/json.html">
+                                json
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="/tag/postgis.html">
+                                postgis
                             </a>
                         </li>
                         <li class="list-group-item tag-4">

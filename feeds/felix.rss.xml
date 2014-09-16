@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Felix's Blog</title><link>/</link><description></description><atom:link href="/feeds/felix.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 12 Sep 2014 19:40:00 +0800</lastBuildDate><item><title>hibernate 执行sql语句总结</title><link>/java_hibernate_sql.html</link><description>&lt;h3&gt;1.使用SQLQuery&lt;/h3&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Felix's Blog</title><link>/</link><description></description><atom:link href="/feeds/felix.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Sep 2014 12:02:00 +0800</lastBuildDate><item><title>PostgreSQL 创建template_postgis模板</title><link>/template_postgis.html</link><description>&lt;h4&gt;Create PostGIS template&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;su&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;template1&lt;/span&gt;
+&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;CREATE&lt;/span&gt; &lt;span class="n"&gt;EXTENSION&lt;/span&gt; &lt;span class="n"&gt;postgis&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;createdb&lt;/span&gt; &lt;span class="n"&gt;geodata&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;template1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;template_postgis&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;CREATE EXTENSION postgis;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Felix</dc:creator><pubDate>Tue, 16 Sep 2014 12:02:00 +0800</pubDate><guid>tag:,2014-09-16:template_postgis.html</guid><category>PostgreSQL</category><category>postgis</category><category>template</category></item><item><title>hibernate 执行sql语句总结</title><link>/java_hibernate_sql.html</link><description>&lt;h3&gt;1.使用SQLQuery&lt;/h3&gt;
 &lt;p&gt;hibernate对原生SQL查询执行的控制是通过SQLQuery接口进行的.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createSQLQuery&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
